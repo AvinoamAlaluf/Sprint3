@@ -1,9 +1,10 @@
 
+import MainPage from './pages/MainPage.js'
 
 const routes = [
     {
-        // path:
-        // component:
+        path:'/',
+        component:MainPage
     },
 
 ];

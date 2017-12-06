@@ -1,14 +1,16 @@
 'use strict';
 
-import routes from 'routes/js';
+import routes from './routes.js';
 
 Vue.use(VueRouter);
-const myRouter = new VueRouter({ routes: myRouter });
+const myRouter = new VueRouter({ routes: routes });
 
 var myVue = new Vue({
     template: `
         <section>
-            <h1>Sprint 3 Bitch Madafacuka</h1>    
+        <h1>collllll</h1>
+            <router-view></router-view>
+
         </section>    
     `,
     created() {
@@ -16,4 +18,4 @@ var myVue = new Vue({
     },
     router: myRouter
 
-}).mount('#app')
+}).$mount('#app')
