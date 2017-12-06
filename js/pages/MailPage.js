@@ -6,7 +6,7 @@ export default {
     template: `
         <section class="emailContainer">
 
-            <mail-menu  @getInbox="sortByDate"></mail-menu>
+            <mail-menu   @sentClick="filterBySent" @inboxClick="sortByDate"></mail-menu>
             <div class="emailRightSection">
                 <mails-list @dateClicked="sortByDateEndRevrse" @mailClicked="readMail" @fromClicked="sortBySender" :emails="emails" ></mails-list>
             </div>
@@ -56,6 +56,12 @@ export default {
         },
         readMail(id){
             EmailService.showMail(id);
+        },
+        filterBySent(){
+            EmailService.getSentEmails().then(emails =>{
+                this.emails = emails;
+                console.log('emails: ',  emails);
+            })
         }
 
     },
