@@ -3,9 +3,9 @@ const emails = [{
     subject: 'Sprint',
     text: 'lorem ipsum tahath ass zhoppa tuhes koo',
     to: 'Small',
-    from: 'Yamin',
+    from: 'ofirnoam',
     read: false,
-    sentAt: _getDate(),
+    sentAt: 1512575000382,
     marked: false
 },
 {
@@ -13,9 +13,9 @@ const emails = [{
     subject: 'Asses Man',
     text: 'lorem ipsum tahath ass zhoppa tuhes koo',
     to: 'Avinoam',
-    from: 'Ofir',
+    from: 'ofirnoam',
     read: false,
-    sentAt: _getDate(),
+    sentAt: 1512575126397,
     marked: false
 },
 {
@@ -25,13 +25,42 @@ const emails = [{
     to: 'Ofir',
     from: 'Avinoam',
     read: false,
-    sentAt: _getDate(),
+    sentAt: 1512575182386,
     marked: false
 }
 ];
 
 function getEmails() {
     return new Promise((resolve, reject) => {
+        resolve(emails);
+    });
+}
+
+function sortByDate() {//need Checkings
+    return new Promise((resolve, reject) => {
+        emails.sort((a, b) => {
+            return a.sentAt - b.sentAt;
+        })
+        resolve(emails);
+    });
+}
+
+function sortByLateDate() {//need Checkings
+    return new Promise((resolve, reject) => {
+        emails.sort((a, b) => {
+            return b.sentAt - a.sentAt;
+        })
+        resolve(emails);
+    });
+}
+
+function sortBySenderDate() {//need Checkings!!!!!!!!!
+    return new Promise((resolve, reject) => {
+        emails.sort((a, b) => {
+            if(a.firstname < b.firstname) return -1;
+            if(a.firstname > b.firstname) return 1;
+            return 0;
+        })
         resolve(emails);
     });
 }
@@ -49,16 +78,42 @@ function getUnreadEmails() {//need Checkings
 function getReadEmails() {//need Checkings
     return new Promise((resolve, reject) => {
         let unreadEmails = emails.filter(email => {
-            return !email.read
+            return email.read
+        })
+        resolve(emails);
+    });
+}
+
+function getUnmarkedEmails() {//need Checkings
+    return new Promise((resolve, reject) => {
+        let unreadEmails = emails.filter(email => {
+            return !email.marked
+        })
+        resolve(emails);
+    });
+}
+
+function getMarkedEmails() {//need Checkings
+    return new Promise((resolve, reject) => {
+        let unreadEmails = emails.filter(email => {
+            return email.marked
+        })
+        resolve(emails);
+    });
+}
+
+function getSentEmails() {//need Checkings
+    return new Promise((resolve, reject) => {
+        let unreadEmails = emails.filter(email => {
+            return email.from === 'ofirnoam'
         })
         resolve(emails);
     });
 }
 
 
-
 function emptyMail() {
-    var emptyMail = { id: _getNextId(), subject: 'Enter title', text: 'Enter text', to: 'to', from: 'from', read: false, sentAt: _getDate(), marked:false};
+    var emptyMail = { id: _getNextId(), subject: 'Enter title', text: 'Enter text', to: 'to', from: 'ofirnoam', read: false, sentAt: Date.now(), marked: false };
     console.log(emptyMail);
     return emptyMail;
 }
