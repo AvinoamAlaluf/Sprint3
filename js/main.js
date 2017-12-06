@@ -1,6 +1,7 @@
 'use strict';
 
 import routes from './routes.js';
+import pagesNavigationMixin from './mixins/pagesNavigationMixin.js'
 
 const myRouter = new VueRouter({ routes: routes });
 var myVue = new Vue({
@@ -12,9 +13,9 @@ var myVue = new Vue({
         <nav>
         <ul>
             <li @click="navigateToHome" class="logoLi">logo</li>
-            <li @click="navigateToMail" >Mail</li>
-            <li @click="navigateToNotes" >Notes</li>
-            <li @click="navigateToMap" >Map</li>
+            <li @click="navigateToMail">Mail</li>
+            <li @click="navigateToNotes">Notes</li>
+            <li @click="navigateToMap">Map</li>
         </ul>
         </nav>
             <router-view></router-view>
@@ -22,22 +23,12 @@ var myVue = new Vue({
         </section>    
     `,
     methods:{
-        navigateToHome(){
-            this.$router.push('/')
-        },
-        navigateToMail(){
-            this.$router.push('/mail')
-        },
-        navigateToNotes(){
-            this.$router.push('/notes')
-        },
-        navigateToMap(){
-            this.$router.push('/map')
-        }
+        
     },
     created() {
 
     },
-    router: myRouter
+    router: myRouter,
+    mixins: [pagesNavigationMixin]
 
 }).$mount('#app')
