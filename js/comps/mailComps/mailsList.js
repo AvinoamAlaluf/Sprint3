@@ -20,12 +20,6 @@ export default {
     `,
     data() {
         return {
-<<<<<<< HEAD
-            sortedBySender: false,
-            sortedByDate: true
-=======
-
->>>>>>> dd3970a6e263b0d8f78a5211c0644b42eb1551ac
         }
     },
     methods: {
