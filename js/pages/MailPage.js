@@ -6,26 +6,54 @@ export default {
     template: `
         <section class="emailContainer">
 
-            <mail-menu  @getInbox="sortByDate()"></mail-menu>
+            <mail-menu  @getInbox="sortByDate"></mail-menu>
             <div class="emailRightSection">
-                <mails-list :emails="emails" ></mails-list>
+                <mails-list @dateClicked="sortByDateEndRevrse" @fromClicked="sortBySender" :emails="emails" ></mails-list>
             </div>
 
         </section>
     `,
     data() {
         return {
-            emails: null
+            emails: null,
+            sortedBySender: false,
+            sortedByDate: false
         }
     },
     methods: {
-        sortByDate(){
+        sortByDate() {
             console.log('DONE')
             EmailService.sortByDate()
-            .then(emails => {
-                this.emails = emails;
-            })
+                .then(emails => {
+                    this.emails = emails;
+                })
         },
+        sortByDateEndRevrse() {
+            this.sortedByDate = !this.sortedByDate
+            if (this.sortedByDate) {
+                EmailService.sortByDate()
+                    .then(emails => {
+                        this.emails = emails;
+                    })
+            } else {
+                EmailService.sortByLateDate()
+                    .then(emails => {
+                        this.emails = emails;
+                    })
+            }
+        },
+        sortBySender(){
+            this.sortedBySender = !this.sortedBySender
+            if (this.sortedBySender) {
+                EmailService.sortBySender()
+                    .then(emails => {
+                        this.emails = emails;
+                    })
+            } else {
+                this.sortByDate()
+            }
+        }
+
     },
     created() {
         this.sortByDate()

@@ -5,9 +5,9 @@ export default {
         <section class="emailList">
         
             <ul class="email emailListHeader">
-                <li @click="sortBySender">From</li>
+                <li @click="fromClicked">From</li>
                 <li>Subject</li>
-                <li @click="sortByDate">Date</li>
+                <li @click="dateClicked">Date</li>
             </ul>
             <ul class="email" v-for="(email, idx) in emails">
                 <li>{{email.from}}</li>
@@ -20,43 +20,29 @@ export default {
     `,
     data() {
         return {
+<<<<<<< HEAD
             sortedBySender: false,
             sortedByDate: true
+=======
+
+>>>>>>> dd3970a6e263b0d8f78a5211c0644b42eb1551ac
         }
     },
     methods: {
-        sortByDate() {
-            this.sortedByDate = !this.sortedByDate
-            if (this.sortedByDate) {
-                EmailService.sortByDate()
-                    .then(emails => {
-                        this.emails = emails;
-                    })
-            } else {
-                EmailService.sortByLateDate()
-                    .then(emails => {
-                        this.emails = emails;
-                    })
-            }
+        dateClicked() {
+            this.$emit('dateClicked');
         },
 
-        sortBySender() {
-            this.sortedBySender = !this.sortedBySender
-            if (this.sortedBySender) {
-                EmailService.sortBySender()
-                    .then(emails => {
-                        this.emails = emails;
-                    })
-            } else {
-                this.sortByDate()
-            }
-
+        fromClicked() {
+            this.$emit('fromClicked');
         }
     },
     created() {
         // this.sortByDate()
     },
     props: {
-        emails: Array
+        emails: Array,
+        sortedBySender: Boolean,
+        sortedByDate: Boolean
     }
 }
