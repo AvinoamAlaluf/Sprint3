@@ -3,6 +3,7 @@ import MainPage from './pages/MainPage.js'
 import MailPage from './pages/MailPage.js'
 import NotesPage from './pages/NotesPage.js'
 import MapPage from './pages/MapPage.js'
+import MailMenu from './comps/mailComps/MailMenu.js' //NOT NEEDED AFTER DOIN THE NEW MAIL PAGE
 
 
 const routes = [
@@ -21,6 +22,10 @@ const routes = [
     {
         path:'/map',
         component:MapPage
+    },
+    {
+        path:'/mail/compose',//TODO: make this page too. currtently routing to mailMenu
+        component:MailMenu
     }
 ];
 
