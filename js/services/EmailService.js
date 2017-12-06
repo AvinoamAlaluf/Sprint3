@@ -107,7 +107,7 @@ function getSentEmails() {//need Checkings
         let unreadEmails = emails.filter(email => {
             return email.from === 'ofirnoam'
         })
-        resolve(emails);
+        resolve(unreadEmails);
     });
 }
 
@@ -159,5 +159,6 @@ export default {
     emptyMail,
     sortBySender,
     sortByDate,
-    sortByLateDate
+    sortByLateDate,
+    getSentEmails
 }
