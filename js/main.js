@@ -2,17 +2,39 @@
 
 import routes from './routes.js';
 
-Vue.use(VueRouter);
 const myRouter = new VueRouter({ routes: routes });
-
 var myVue = new Vue({
+
     template: `
-        <section>
-        <h1>collllll</h1>
+        <section class="mainNav">
+       
+        
+        <nav>
+        <ul>
+            <li @click="navigateToHome" class="logoLi">logo</li>
+            <li @click="navigateToMail" >Mail</li>
+            <li @click="navigateToNotes" >Notes</li>
+            <li @click="navigateToMap" >Map</li>
+        </ul>
+        </nav>
             <router-view></router-view>
 
         </section>    
     `,
+    methods:{
+        navigateToHome(){
+            this.$router.push('/')
+        },
+        navigateToMail(){
+            this.$router.push('/mail')
+        },
+        navigateToNotes(){
+            this.$router.push('/notes')
+        },
+        navigateToMap(){
+            this.$router.push('/map')
+        }
+    },
     created() {
 
     },
