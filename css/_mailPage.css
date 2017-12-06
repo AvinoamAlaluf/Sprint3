@@ -1,24 +1,50 @@
+
 .emailContainer{
     width: 100%;    
 }
 
-.emailListContainer{
-    width: 70%;
-}
-
 .emailList{
-    width: 100%;
-}
-
-tr{
-    width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-    border-spacing: none;    
-}
-
-td{
-    border: 1px solid black;
-    border-collapse: collapse;    
+    width: 80%;
+    display: flex;
+    flex-direction: column;
     
+}
+
+.email{
+    width: 100%;
+    /* border: 1px solid lightgray; */
+    height: 30px;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;    
+    padding: 0;
+    background-image: linear-gradient(to bottom, rgb(201, 199, 199), rgb(168, 166, 166));
+    margin: 0;
+}
+
+.email:hover{
+    background-image: linear-gradient(to bottom, rgb(223, 219, 219), rgb(168, 166, 166));
+}
+
+.email li{
+    /* border: 1px solid rgb(122, 122, 122); */
+    width: 33.333%;
+    
+    display: flex;
+    align-items: center;
+    padding-left: 5px;  
+    height: 100%;  
+}
+
+.emailListHeader{
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 3px;
+}
+
+.emailListHeader li:hover{
+    background-image: linear-gradient(to bottom, rgb(197, 197, 197), rgb(168, 166, 166));  
 }

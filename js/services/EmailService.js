@@ -54,11 +54,11 @@ function sortByLateDate() {//need Checkings
     });
 }
 
-function sortBySenderDate() {//need Checkings!!!!!!!!!
+function sortBySender() {//need Checkings!!!!!!!!!
     return new Promise((resolve, reject) => {
         emails.sort((a, b) => {
-            if(a.firstname < b.firstname) return -1;
-            if(a.firstname > b.firstname) return 1;
+            if(a.from < b.from) return -1;
+            if(a.from > b.from) return 1;
             return 0;
         })
         resolve(emails);
@@ -156,5 +156,7 @@ export default {
     getMail,
     saveMail,
     deleteMail,
-    emptyMail
+    emptyMail,
+    sortBySender,
+    sortByDate
 }
