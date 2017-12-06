@@ -7,7 +7,7 @@ export default {
             <ul class="email emailListHeader">
                 <li @click="sortBySender">From</li>
                 <li>Subject</li>
-                <li>Date</li>
+                <li @click="sortByDate">Date</li>
             </ul>
             <ul class="email" v-for="(email, idx) in emails">
                 <li>{{email.from}}</li>
@@ -21,15 +21,24 @@ export default {
     data() {
         return {
          emails: [],
-         sortedBySender: false
+         sortedBySender: false,
+         sortedByDate: false
         }
     },
     methods: {
         sortByDate(){
+            this.sortedByDate=!this.sortedByDate
+            if (this.sortedByDate){
             EmailService.sortByDate()
             .then(emails => {
                 this.emails = emails;
             })
+        }else{
+            EmailService.sortByLateDate()
+            .then(emails => {
+                this.emails = emails;
+            })
+        }
         },
 
         sortBySender(){

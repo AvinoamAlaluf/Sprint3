@@ -158,5 +158,6 @@ export default {
     deleteMail,
     emptyMail,
     sortBySender,
-    sortByDate
+    sortByDate,
+    sortByLateDate
 }

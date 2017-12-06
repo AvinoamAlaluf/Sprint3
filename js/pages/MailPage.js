@@ -4,9 +4,10 @@ import MailMenu from '../comps/mailComps/MailMenu.js'
 export default {
     template: `
         <section class="emailContainer">
-        <h1>mail</h1>
             <mail-menu></mail-menu>
+            <div class="emailRightSection">
             <mails-list></mails-list>
+            </div>
         </section>
     `,
     data() {

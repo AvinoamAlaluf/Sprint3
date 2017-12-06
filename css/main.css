@@ -40,3 +40,7 @@ nav li{
     list-style: none;
     cursor: pointer;
 }
+
+nav li:hover{
+    color: rgb(97, 96, 96);
+}    

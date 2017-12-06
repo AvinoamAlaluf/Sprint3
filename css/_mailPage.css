@@ -1,13 +1,18 @@
 
 .emailContainer{
-    width: 100%;    
+    width: 98%;    
+    display: flex;
+    justify-content: space-between;
+}
+
+.emailRightSection{
+    width: 89.9%;
 }
 
 .emailList{
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    
 }
 
 .email{
@@ -23,6 +28,7 @@
     padding: 0;
     background-image: linear-gradient(to bottom, rgb(201, 199, 199), rgb(168, 166, 166));
     margin: 0;
+    /* border-radius: 5px; */
 }
 
 .email:hover{
@@ -36,15 +42,44 @@
     display: flex;
     align-items: center;
     padding-left: 5px;  
-    height: 100%;  
+    height: 100%;
+      
 }
 
 .emailListHeader{
     font-weight: bold;
     font-size: 1.2em;
-    margin-bottom: 3px;
+    /* margin-bottom: 3px; */
 }
 
 .emailListHeader li:hover{
     background-image: linear-gradient(to bottom, rgb(197, 197, 197), rgb(168, 166, 166));  
+    /* border-radius: 10px; */
+}
+
+.emailMenu{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.menuContainer{
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgb(201, 199, 199), rgb(168, 166, 166));    
+}
+
+.menuContainer ul{
+    padding: 0;
+    margin: 0;
+}
+
+.menuContainer li{
+     list-style: none; 
+     margin-bottom: 5px;
+}
+
+.menuContainer li:hover{
+    color: rgb(70, 69, 69);
+    cursor: pointer;
 }
