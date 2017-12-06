@@ -5,9 +5,12 @@ import MailMenu from '../comps/mailComps/MailMenu.js'
 export default {
     template: `
         <section class="emailContainer">
-        <h1>mail</h1>
+
             <mail-menu  @getInbox="sortByDate()"></mail-menu>
-            <mails-list :emails="emails" ></mails-list>
+            <div class="emailRightSection">
+                <mails-list :emails="emails" ></mails-list>
+            </div>
+
         </section>
     `,
     data() {
