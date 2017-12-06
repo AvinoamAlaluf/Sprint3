@@ -1,0 +1,10 @@
+@import "_fonts.css";
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Lato-bold;
+    /* background: url(../img/background.jpg); */
+}
