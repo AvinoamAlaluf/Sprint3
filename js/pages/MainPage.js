@@ -3,9 +3,7 @@
 export default {
     template: `
         <section >
-           <nav>
-                
-           </nav>
+           
         </section>
     `,
     data() {
