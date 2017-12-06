@@ -17,7 +17,7 @@ export default {
         return {
             emails: null,
             sortedBySender: false,
-            sortedByDate: false
+            sortedByDate: true
         }
     },
     methods: {
