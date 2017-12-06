@@ -20,7 +20,7 @@ export default {
     `,
     data() {
         return {
-         emails: [],
+        //  emails1: [],//NEED CAHINGIN GHT NAME 
          sortedBySender: false
         }
     },
@@ -46,6 +46,9 @@ export default {
         }
     },
     created() {
-        this.sortByDate()
+        // this.sortByDate()
+    },
+    props:{
+        emails:Array
     }
 }

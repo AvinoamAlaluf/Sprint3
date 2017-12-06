@@ -6,7 +6,7 @@ export default {
             <div class="menuContainer">
                 <ul>
                     <li @click="routeToCompose"><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
-                    <li><span>Inbox</span></li>
+                    <li @click="getInbox"><span>Inbox</span></li>
                     <li><span>Sent</span></li>
                 </ul>
             </div>
@@ -18,11 +18,18 @@ export default {
         }
     },
     methods: {
+        getInbox(){
+            console.log('hi');
+            this.$emit('getInbox')
+        },
         routeToCompose(){
             this.$router.push('/mail/compose')
         },
         sortByDate(){
-            // EmailService.
+            EmailService.sortByDate()
+            .then(emails => {
+                this.emails = emails;
+            })
         },
 
     },
