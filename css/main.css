@@ -1,5 +1,6 @@
 @import "_fonts.css";
-@import "_homepage.css";
+@import "_homePage.css";
+@import "_mailPage.css";
 
 body {
     display: flex;

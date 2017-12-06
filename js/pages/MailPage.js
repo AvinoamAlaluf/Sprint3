@@ -1,7 +1,10 @@
+import MailsList from '../comps/mailComps/MailsList.js'
+
 export default {
     template: `
-        <section >
+        <section class="emailContainer">
         <h1>mail</h1>
+            <mails-list></mails-list>
         </section>
     `,
     data() {
@@ -14,5 +17,8 @@ export default {
     },
     created() {
         
+    },
+    components:{
+        MailsList 
     }
 }
