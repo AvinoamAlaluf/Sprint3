@@ -5,7 +5,8 @@ const emails = [{
     to: 'Small',
     from: 'Yamin',
     read: false,
-    sentAt: _getDate()
+    sentAt: _getDate(),
+    marked: false
 },
 {
     id: 2,
@@ -14,7 +15,8 @@ const emails = [{
     to: 'Avinoam',
     from: 'Ofir',
     read: false,
-    sentAt: _getDate()
+    sentAt: _getDate(),
+    marked: false
 },
 {
     id: 3,
@@ -23,7 +25,8 @@ const emails = [{
     to: 'Ofir',
     from: 'Avinoam',
     read: false,
-    sentAt: _getDate()
+    sentAt: _getDate(),
+    marked: false
 }
 ];
 
@@ -55,7 +58,7 @@ function getReadEmails() {//need Checkings
 
 
 function emptyMail() {
-    var emptyMail = { id: _getNextId(), subject: 'Enter title', text: 'Enter text', to: 'to', from: 'from', read: false, sentAt: _getDate(), };
+    var emptyMail = { id: _getNextId(), subject: 'Enter title', text: 'Enter text', to: 'to', from: 'from', read: false, sentAt: _getDate(), marked:false};
     console.log(emptyMail);
     return emptyMail;
 }
