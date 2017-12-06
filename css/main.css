@@ -1,4 +1,5 @@
 @import "_fonts.css";
+@import "_homepage.css";
 
 body {
     display: flex;
