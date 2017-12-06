@@ -9,7 +9,7 @@ export default {
                 <li>Subject</li>
                 <li @click="dateClicked">Date</li>
             </ul>
-            <ul class="email" v-for="(email, idx) in emails">
+            <ul @click="mailClicked(email.id)" class="email" :class="{'readed' : email.read}" v-for="(email, idx) in emails">
                 <li>{{email.from}}</li>
                 <li>{{email.subject}}</li>
                 <li>{{email.sentAt}}</li>
@@ -20,6 +20,7 @@ export default {
     `,
     data() {
         return {
+
         }
     },
     methods: {
@@ -29,6 +30,9 @@ export default {
 
         fromClicked() {
             this.$emit('fromClicked');
+        },
+        mailClicked(id){
+            this.$emit('mailClicked',id);
         }
     },
     created() {

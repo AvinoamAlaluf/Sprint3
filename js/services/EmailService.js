@@ -151,6 +151,13 @@ function deleteMail(id) {
     emails.splice(mailTochangeIdx, 1);
 }
 
+function showMail(id){
+    var foundMail = emails.find(mail => mail.id === id);
+        // console.log(foundMail);
+
+        foundMail.read = true;    
+}
+
 export default {
     getEmails,
     getMail,
@@ -159,5 +166,6 @@ export default {
     emptyMail,
     sortBySender,
     sortByDate,
-    sortByLateDate
+    sortByLateDate,
+    showMail
 }

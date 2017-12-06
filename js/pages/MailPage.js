@@ -8,7 +8,7 @@ export default {
 
             <mail-menu  @getInbox="sortByDate"></mail-menu>
             <div class="emailRightSection">
-                <mails-list @dateClicked="sortByDateEndRevrse" @fromClicked="sortBySender" :emails="emails" ></mails-list>
+                <mails-list @dateClicked="sortByDateEndRevrse" @mailClicked="readMail" @fromClicked="sortBySender" :emails="emails" ></mails-list>
             </div>
 
         </section>
@@ -17,7 +17,8 @@ export default {
         return {
             emails: null,
             sortedBySender: false,
-            sortedByDate: true
+            sortedByDate: true,
+            
         }
     },
     methods: {
@@ -52,6 +53,9 @@ export default {
             } else {
                 this.sortByDate()
             }
+        },
+        readMail(id){
+            EmailService.showMail(id);
         }
 
     },
