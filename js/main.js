@@ -9,7 +9,7 @@ var myVue = new Vue({
     template: `
         <section class="mainNav">
        
-        
+        <header>
         <nav v-if="showNav">      
             <img @click="navigateToHome" class="logoNav" src="../img/logo.png">
         <ul>
@@ -18,6 +18,7 @@ var myVue = new Vue({
             <li @click="navigateToMap">Map</li>
         </ul>
         </nav>
+        </header>
             <router-view></router-view>
         </section>    
     `,
