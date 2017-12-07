@@ -8,12 +8,12 @@ export default {
             <div class="popup">
                 <h2>New Mail</h2>
                 <a class="close" @click="closeCompose">&times;</a>
-                <form class="content">
+                <form class="content" @submit="submitClicked" >
                     
-                        <input type="text" placeholder="To:">
-                        <input type="text" placeholder="Subject">
-                        <textarea placeholder="Enter text"></textarea>
-                        <button @click="sendMail">Submit</button>
+                        <input type="text" placeholder="To:" v-model="newMail.composeTo" >
+                        <input type="text" placeholder="Subject" v-model="newMail.composeSubject" >
+                        <textarea placeholder="Enter text" v-model="newMail.composeText"></textarea  >
+                        <button @click="submitClicked">Submit</button>
                 </form>
             </div>
         </div>
@@ -23,15 +23,17 @@ export default {
     data() {
         return {
          
-            
+            newMail:{composeTo:'',composeSubject:'',composeText:''}
         }
     },
     methods: {
         closeCompose(){
             this.$router.push('/mail')
         },
-        sendMail(){
-            EmailService.sendMail();
+        submitClicked(){
+            event.preventDefault()
+            console.log(this.newMail);
+            this.$emit('newMail',this.newMail)
             this.$router.push('/mail')
         }
     },
