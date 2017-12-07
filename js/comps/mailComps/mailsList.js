@@ -5,7 +5,7 @@ export default {
         <section class="emailList">
         
             <ul class="email emailListHeader">
-                <li></li>
+                <li class="favorite"></li>
                 <li @click="fromClicked">From</li>
                 <li>Subject</li>
                 <li @click="dateClicked">Date</li>
