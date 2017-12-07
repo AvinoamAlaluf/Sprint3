@@ -35,6 +35,10 @@ const routes = [
     {
         path:'/mail/compose',//TODO: make this page too. currtently routing to mailMenu
         component:MailPage
+    },
+    {
+        path:'/mail/:id',//TODO: make this page too. currtently routing to mailMenu
+        component:MailPage
     }
 ];
 

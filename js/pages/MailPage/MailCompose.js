@@ -6,15 +6,23 @@ export default {
 
         <div id="popup1" class="overlay">
             <div class="popup">
-                <h2>New Mail</h2>
+                <h2>{{headLine}}</h2>
                 <a class="close" @click="closeCompose">&times;</a>
-                <form class="content" @submit="submitClicked" >
-                    
+
+                <form class="content" @submit="submitClicked" v-if="isCompose" >
                         <input type="text" placeholder="To:" v-model="newMail.composeTo" >
                         <input type="text" placeholder="Subject" v-model="newMail.composeSubject" >
                         <textarea placeholder="Enter text" v-model="newMail.composeText"></textarea  >
                         <button @click="submitClicked">Submit</button>
                 </form>
+
+                <form class="content" @submit="submitClicked" v-else >
+                <h1 class="">{{selectedMail.to}}</h1>
+                <h3 class="">{{selectedMail.subject}}</h3>
+                <h3 class="">{{selectedMail.text}}</h3>
+                <h3 class="">{{selectedMail.sentAt}}</h3>
+            </form>
+
             </div>
         </div>
 
@@ -22,25 +30,34 @@ export default {
     `,
     data() {
         return {
-         
-            newMail:{composeTo:'',composeSubject:'',composeText:''}
+            isCompose: false,
+            newMail: { composeTo: '', composeSubject: '', composeText: '' },
+            mailToShow: {},
+            headLine: 'Compose A New Mail'
         }
+    },
+    props: {
+        selectedMail:Object
     },
     methods: {
-        closeCompose(){
+        closeCompose() {
             this.$router.push('/mail')
         },
-        submitClicked(){
+        submitClicked() {
             event.preventDefault()
             console.log(this.newMail);
-            this.$emit('newMail',this.newMail)
+            this.$emit('newMail', this.newMail)
             this.$router.push('/mail')
         }
+
+
     },
     created() {
-        
+        this.isCompose = this.$route.path.match(/\/mail\/+\d+/) === null;
+        if (!this.isCompose) {
+            this.headLine = this.selectedMail.from//needs changing to the
+        }
+        console.log('isCompose', this.isCompose);
     },
-    components: {
-      
-    }
+    
 }

@@ -28,7 +28,7 @@ export default {
             </div>
 
             
-            <mail-compose  v-if="showMailCompose"  @newMail="sendEmail"></mail-compose>
+            <mail-compose v-if="showMailCompose"  @newMail="sendEmail" :selectedMail="selectedMail"></mail-compose>
         </section>
     `,
     data() {
@@ -36,7 +36,8 @@ export default {
             emails: null,
             sortedBySender: false,
             sortedByDate: true,
-            showMailCompose: false
+            showMailCompose: false,
+            selectedMail: null
         }
     },
     methods: {
@@ -61,7 +62,7 @@ export default {
                     })
             }
         },
-        sortBySender(){
+        sortBySender() {
             this.sortedBySender = !this.sortedBySender
             if (this.sortedBySender) {
                 EmailService.sortBySender()
@@ -72,27 +73,32 @@ export default {
                 this.sortByDate()
             }
         },
-        readMail(id){
+        readMail(id) {
+            // debugger;
             EmailService.showMail(id);
+            EmailService.getMail(id).then(email => this.selectedMail = email);
+            this.showMailCompose = true;
+            this.$router.push('/mail/' + id)
         },
-        filterBySent(){
-            EmailService.getSentEmails().then(emails =>{
+        filterBySent() {
+            EmailService.getSentEmails().then(emails => {
                 this.emails = emails;
-                console.log('emails: ',  emails);
+                console.log('emails: ', emails);
             })
         },
-        startSearching(valueToSearch){
+        startSearching(valueToSearch) {
             EmailService.search(valueToSearch).then(refinedEmails => this.emails = refinedEmails)
-            .catch(err=> console.log('SERVICE ERROR: ',err ))
+                .catch(err => console.log('SERVICE ERROR: ', err))
         },
-        filterRead(){
+        filterRead() {
             EmailService.getReadEmails()
-            .then(emails => {
-                this.emails = emails;
-            })
+                .then(emails => {
+                    this.emails = emails;
+                })
         },
-        filterUnread(){
+        filterUnread() {
             EmailService.getUnreadEmails()
+<<<<<<< HEAD
             .then(emails => {
                 this.emails = emails;
             })
@@ -104,24 +110,36 @@ export default {
             })
         }, 
         sendEmail(newMail){
-            EmailService.emptyMail()
-            .then(emptyMailObj =>{
-                emptyMailObj.to = newMail.composeTo;
-                emptyMailObj.subject = newMail.composeSubject;
-                emptyMailObj.text = newMail.composeText;
-                EmailService.addMail(emptyMailObj)
-                .then(console.log('Success Indeed'))
-                .catch(console.log('What a Failure'))
-            }).catch( ()=>console.log('Service failed to Get New Mail Obj'))
+=======
+                .then(emails => {
+                    this.emails = emails;
+                })
         },
-
+        sendEmail(newMail) {
+>>>>>>> ccbce0bc537bd8d38d6cc632136d3f4c9c9e2600
+            EmailService.emptyMail()
+                .then(emptyMailObj => {
+                    emptyMailObj.to = newMail.composeTo;
+                    emptyMailObj.subject = newMail.composeSubject;
+                    emptyMailObj.text = newMail.composeText;
+                    EmailService.addMail(emptyMailObj)
+                        .then(console.log('Success Indeed'))
+                        .catch(console.log('What a Failure'))
+                }).catch(() => console.log('Service failed to Get New Mail Obj'))
+        },
+    },
+    watch: {
+        '$route'(to, from) {
+            var id = this.$route.params.id;
+            var isCompose = this.$route.path === '/mail/compose';
+            var id = this.$route.params.id;
+            if (id || isCompose) {
+                this.showMailCompose = true
+            }
+            else this.showMailCompose = false
+        }
     },
 
-    beforeUpdate(){
-        var route = this.$route.path;
-        if (route === '/mail/compose') this.showMailCompose = true; 
-        else this.showMailCompose = false;
-    },
     created() {
         this.sortByDate()
     },
