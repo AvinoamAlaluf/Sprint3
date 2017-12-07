@@ -4,7 +4,7 @@ export default {
     template: `
         <section class="emailToolBar">
         <form>
-        <input class="mailSearch" type="text" placeholder="🔎 search">
+        <input class="mailSearch" type="text" placeholder="🔎 search" @keydown="checkIfSearch" v-model="searchedValue">
         <div id='cssmenu'>
         <ul>
            <li class='active has-sub'><a href='#'><span>Fliter</span></a>
@@ -46,16 +46,27 @@ export default {
     `,
     data() {
         return {
-
-        }
+            searchedValue: ''
+        }   
     },
     methods: {
-       
+        checkIfSearch() {
+            console.log('checkIfSearchFunc');
+            if (event.keyCode === 13) {
+            
+                this.callSearch(this.searchedValue);
+            }
+        },
+        callSearch(valueToSearch) {
+            
+            this.$emit('searchEvent', valueToSearch);
+        }
     },
     created() {
-    console.log('toolbar');
+        console.log('toolbar');
     },
-    props: {
-       
+    updated(){
+        console.log(this.searchedValue)
     }
+    
 }
