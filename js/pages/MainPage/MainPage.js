@@ -1,4 +1,4 @@
-import pagesNavigationMixin from '../mixins/pagesNavigationMixin.js'
+import pagesNavigationMixin from '../../mixins/pagesNavigationMixin.js'
 
 
 export default {

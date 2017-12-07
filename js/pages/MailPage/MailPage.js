@@ -1,7 +1,7 @@
-import EmailService from '../services/EmailService.js'
-import MailsList from '../comps/mailComps/MailsList.js'
-import MailMenu from '../comps/mailComps/MailMenu.js'
-import MailToolbar from '../comps/mailComps/MailToolBar.js'
+import EmailService from '../../services/EmailService.js'
+import MailsList from '../../comps/mailComps/MailsList.js'
+import MailMenu from '../../comps/mailComps/MailMenu.js'
+import MailToolbar from '../../comps/mailComps/MailToolBar.js'
 
 
 export default {
