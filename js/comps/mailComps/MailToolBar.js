@@ -9,30 +9,10 @@ export default {
         <ul>
            <li class='active has-sub'><a href='#'><span>Fliter</span></a>
               <ul>
-                 <li class='has-sub'><a href='#'><span>All</span></a>
-                    <ul>
-                       <li><a href='#'><span>Sub Product</span></a></li>
-                       <li class='last'><a href='#'><span>Sub Product</span></a></li>
-                    </ul>
-                 </li>
-                 <li class='has-sub'><a href='#'><span>Read</span></a>
-                    <ul>
-                       <li><a href='#'><span>Sub Product</span></a></li>
-                       <li class='last'><a href='#'><span>Sub Product</span></a></li>
-                    </ul>
-                 </li>
-                 <li class='has-sub'><a href='#'><span>Unred</span></a>
-                 <ul>
-                    <li><a href='#'><span>Sub Product</span></a></li>
-                    <li class='last'><a href='#'><span>Sub Product</span></a></li>
-                 </ul>
-              </li>
-              <li class='has-sub'><a href='#'><span>Marked</span></a>
-              <ul>
-                 <li><a href='#'><span>Sub Product</span></a></li>
-                 <li class='last'><a href='#'><span>Sub Product</span></a></li>
-              </ul>
-           </li>
+                 <li class='has-sub'><a href='#'@click="clickedAll"><span>All</span></a></li>
+                 <li class='has-sub'><a href='#' @click="clickedRead"><span>Read</span></a></li>
+                 <li class='has-sub'><a href='#' @click="clickedUnread"><span>Unread</span></a></li>
+              <li class='has-sub'><a href='#'><span>Marked</span></a></li>
               </ul>
            </li>
         
@@ -60,7 +40,16 @@ export default {
         callSearch(valueToSearch) {
             
             this.$emit('searchEvent', valueToSearch);
-        }
+        },
+        clickedRead(){
+            this.$emit('clickedRead');
+        },
+        clickedUnread(){
+            this.$emit('clickedUnread');
+        },
+        clickedAll(){
+            this.$emit('clickedAll');
+        },
     },
     created() {
         console.log('toolbar');

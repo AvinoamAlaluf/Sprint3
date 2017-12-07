@@ -5,6 +5,7 @@ import NotesPage from './pages/NotesPage/NotesPage.js'
 import MapPage from './pages/MapPage/MapPage.js'
 import MailMenu from './comps/mailComps/MailMenu.js' //NOT NEEDED AFTER DOIN THE NEW MAIL PAGE
 import MailCompose from './pages/MailPage/MailCompose.js'
+import MyNote from './pages/NotesPage/myNote.js'
 
 const routes = [
     {
@@ -18,6 +19,14 @@ const routes = [
     {
         path:'/notes',
         component:NotesPage
+    },
+    {
+        path:'/notes/mynote/:id/edit',
+        component:MyNote
+    },
+    {
+        path:'/notes/mynote/add',
+        component:MyNote
     },
     {
         path:'/map',

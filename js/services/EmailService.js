@@ -70,17 +70,17 @@ function getUnreadEmails() {//need Checkings
         let unreadEmails = emails.filter(email => {
             return !email.read
         })
-        resolve(emails);
+        resolve(unreadEmails);
     });
 }
 
 
 function getReadEmails() {//need Checkings
     return new Promise((resolve, reject) => {
-        let unreadEmails = emails.filter(email => {
+        let readEmails = emails.filter(email => {
             return email.read
         })
-        resolve(emails);
+        resolve(readEmails);
     });
 }
 
@@ -192,5 +192,7 @@ export default {
     showMail,
     getSentEmails,
     sendMail,
-    search
+    search,
+    getReadEmails,
+    getUnreadEmails
 }

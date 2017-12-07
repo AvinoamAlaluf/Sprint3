@@ -25,12 +25,18 @@ var myVue = new Vue({
         showNav: true,
     },
     methods:{
+        navControl(){
+            console.log('hi');        
+            var route = this.$route.path;
+            if (route === '/') this.showNav = false;
+            else this.showNav = true;
+        }
+    },
+    created(){
+        this.navControl();
     },
     beforeUpdate() {
-        console.log('hi');
-       var route = this.$route.path;
-       if (route === '/') this.showNav = false;
-       else this.showNav = true;
+        this.navControl();
     },
     router: myRouter,
     mixins: [pagesNavigationMixin]

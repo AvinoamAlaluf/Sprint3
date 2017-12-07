@@ -17,20 +17,20 @@ export default { template: `
    } 
 },
 created() {
-   notesBoardService.query()
+    NotesService.query()
        .then((notes)=>{
            this.notes = notes;
        })
 },
 methods: { 
    openMyNote(id){
-       this.$router.push('/myNote/' + id + '/edit')
+       this.$router.push('/notes/mynote/' + id + '/edit')
    },
    openNewNote(id){
-       this.$router.push('/myNote/add')
+       this.$router.push('/notes/mynote/add')
    },
    deleteNote(id){
-       notesBoardService.deleteItem(id);
+    NotesService.deleteItem(id);
    }
 } 
 }

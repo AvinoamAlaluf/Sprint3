@@ -40,13 +40,25 @@
 .email li{
     /* border: 1px solid rgb(122, 122, 122); */
     width: 33.333%;
-    
     display: flex;
     align-items: center;
     padding-left: 5px;  
     height: 100%;
     font-size: 1.2em;
     font-weight: bolder;
+}
+
+.favorite{
+    color: rgba(247, 247, 247, 0.4); 
+    max-width: 3%;
+}
+
+.favorite:hover{
+    color: rgba(206, 202, 1, 0.7);
+}
+
+.marked{
+    color: rgba(206, 202, 1, 0.9);
 }
 
 .emailListHeader{
@@ -93,6 +105,7 @@
 .readed{
     background: rgba(138, 139, 138, 0.3);
     font-family: lato-regular;
+    /* font-size: 0.8em;     */
 }
 
 .emailToolBar{

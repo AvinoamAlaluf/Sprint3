@@ -2,6 +2,7 @@
 @import "_homePage.css";
 @import "_mailPage.css";
 @import "_mailToolbar.css";
+@import "_notes.css";
 
 body {
     display: flex;
