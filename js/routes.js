@@ -1,8 +1,8 @@
 
-import MainPage from './pages/MainPage.js'
-import MailPage from './pages/MailPage.js'
-import NotesPage from './pages/NotesPage.js'
-import MapPage from './pages/MapPage.js'
+import MainPage from './pages/NotesPage/MainPage.js'
+import MailPage from './pages/NotesPage/MailPage.js'
+import NotesPage from './pages/NotesPage/NotesPage.js'
+import MapPage from './pages/NotesPage/MapPage.js'
 import MailMenu from './comps/mailComps/MailMenu.js' //NOT NEEDED AFTER DOIN THE NEW MAIL PAGE
 
 
