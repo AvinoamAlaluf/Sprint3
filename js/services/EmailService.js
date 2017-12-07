@@ -198,7 +198,6 @@ export default {
     sortByLateDate,
     showMail,
     getSentEmails,
-    sendMail,
     search,
     getReadEmails,
     getUnreadEmails,
