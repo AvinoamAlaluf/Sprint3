@@ -98,7 +98,6 @@ export default {
         },
         filterUnread() {
             EmailService.getUnreadEmails()
-<<<<<<< HEAD
             .then(emails => {
                 this.emails = emails;
             })
@@ -109,14 +108,7 @@ export default {
                 this.emails = emails;
             })
         }, 
-        sendEmail(newMail){
-=======
-                .then(emails => {
-                    this.emails = emails;
-                })
-        },
         sendEmail(newMail) {
->>>>>>> ccbce0bc537bd8d38d6cc632136d3f4c9c9e2600
             EmailService.emptyMail()
                 .then(emptyMailObj => {
                     emptyMailObj.to = newMail.composeTo;
