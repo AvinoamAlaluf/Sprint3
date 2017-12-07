@@ -1,6 +1,8 @@
 import EmailService from '../services/EmailService.js'
 import MailsList from '../comps/mailComps/MailsList.js'
 import MailMenu from '../comps/mailComps/MailMenu.js'
+import MailToolbar from '../comps/mailComps/MailToolBar.js'
+
 
 export default {
     template: `
@@ -8,6 +10,7 @@ export default {
 
             <mail-menu   @sentClick="filterBySent" @inboxClick="sortByDate"></mail-menu>
             <div class="emailRightSection">
+                <mail-toolbar></mail-toolbar>
                 <mails-list @dateClicked="sortByDateEndRevrse" @mailClicked="readMail" @fromClicked="sortBySender" :emails="emails" ></mails-list>
             </div>
 
@@ -70,6 +73,7 @@ export default {
     },
     components: {
         MailsList,
-        MailMenu
+        MailMenu,
+        MailToolbar
     }
 }

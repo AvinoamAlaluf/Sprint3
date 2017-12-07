@@ -1,7 +1,23 @@
 .homepageContainer{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     width: 50%;
+}
+
+.homepageHeader{
+    color: white;
+    font-size: 70px;
+}
+
+.homepageLogo{
+    width: 20%;
+}
+
+.iconContainers{
+    display: flex;
 }
 
 .iconContainer{

@@ -94,3 +94,22 @@
     background: rgba(138, 139, 138, 0.3);
     font-family: lato-regular;
 }
+
+.emailToolBar{
+    width: 100%;
+}
+
+.emailToolBar form{
+    display: flex;
+    justify-content: space-between;
+}    
+
+.mailSearch{
+    width: 87%; 
+    background: rgba(138, 139, 138, 0.5);
+    border: none;    
+}
+
+.mailFilter{
+    width: 11.9%;        
+}

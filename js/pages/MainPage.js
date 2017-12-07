@@ -5,7 +5,10 @@ export default {
     template: `
 
         <section class="homepageContainer">
-     
+
+        <h1 class="homepageHeader"><img class="homepageLogo" src="../img/logo.png">ork shop</h1>
+        
+        <div class="iconContainers">
         <div @click="navigateToMail" class="iconContainer mailIcon">
                 <div class="mailIcon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
         </div>
@@ -19,6 +22,7 @@ export default {
             <div class="mapIcon"><i class="fa fa-globe" aria-hidden="true"></i></div>           
         </div>
 
+    </div>
         </section>
     `,
     data() {

@@ -1,6 +1,7 @@
 @import "_fonts.css";
 @import "_homePage.css";
 @import "_mailPage.css";
+@import "_mailToolbar.css";
 
 body {
     display: flex;
@@ -8,7 +9,9 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Lato-bold;
-    /* background: url(../img/background.jpg); */
+    background: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% ;
 }
 
 .mainNav{
@@ -22,6 +25,8 @@ body {
 
 .mainNav nav{
     width: 60%;
+    display: flex;
+    justify-content: space-between;
 }
 
 nav ul{
@@ -32,8 +37,11 @@ nav ul{
     background: rgba(138, 139, 138, 0.1);
 }
 
-.logoLi{
-
+.logoNav{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 20px;
 }
 
 nav li{
@@ -44,3 +52,4 @@ nav li{
 nav li:hover{
     color: rgb(97, 96, 96);
 }    
+
