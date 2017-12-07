@@ -11,7 +11,7 @@ export default {
 
             <mail-menu   @sentClick="filterBySent" @inboxClick="sortByDate"></mail-menu>
             <div class="emailRightSection">
-                <mail-toolbar></mail-toolbar>
+                <mail-toolbar @searchEvent="startSearching"></mail-toolbar>
                 <mails-list @dateClicked="sortByDateEndRevrse" @mailClicked="readMail" @fromClicked="sortBySender" :emails="emails" ></mails-list>
             </div>
 
@@ -24,7 +24,10 @@ export default {
             emails: null,
             sortedBySender: false,
             sortedByDate: true,
+<<<<<<< HEAD
             showMailCompose: false
+=======
+>>>>>>> 2b2de2edf768a6343f2351b2ea80d0c3ce1fb38d
         }
     },
     methods: {
@@ -68,6 +71,10 @@ export default {
                 this.emails = emails;
                 console.log('emails: ',  emails);
             })
+        },
+        startSearching(valueToSearch){
+            EmailService.search(valueToSearch).then(refinedEmails => this.emails = refinedEmails)
+            .catch(err=> console.log('SERVICE ERROR: ',err ))
         }
 
     },

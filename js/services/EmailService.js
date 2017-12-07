@@ -57,8 +57,8 @@ function sortByLateDate() {//need Checkings
 function sortBySender() {//need Checkings!!!!!!!!!
     return new Promise((resolve, reject) => {
         emails.sort((a, b) => {
-            if(a.from < b.from) return -1;
-            if(a.from > b.from) return 1;
+            if (a.from < b.from) return -1;
+            if (a.from > b.from) return 1;
             return 0;
         })
         resolve(emails);
@@ -113,7 +113,7 @@ function getSentEmails() {//need Checkings
 
 
 function emptyMail() {
-    var emptyMail = { id: _getNextId(), subject: 'Enter title', text: 'Enter text', to: 'to', from: 'ofirnoam', read: false, sentAt: Date.now(), marked: false };
+    var emptyMail = { id: _getNextId(), subject: '', text: '', to: '', from: 'ofirnoam', read: false, sentAt: Date.now(), marked: false };
     console.log(emptyMail);
     return emptyMail;
 }
@@ -151,11 +151,28 @@ function deleteMail(id) {
     emails.splice(mailTochangeIdx, 1);
 }
 
-function showMail(id){
+function showMail(id) {
     var foundMail = emails.find(mail => mail.id === id);
-        // console.log(foundMail);
+    // console.log(foundMail);
 
-        foundMail.read = true;    
+    foundMail.read = true;
+}
+
+function search(searchedValue) {
+    debugger;
+    var refiendEmails = [];
+    var wordToSearch = searchedValue.toLowerCase();
+    return new Promise((resolve,reject) =>{
+        refiendEmails = emails.filter(email => {
+            debugger;
+            return email.from.toLowerCase().includes(wordToSearch) ||
+                email.to.toLowerCase().includes(wordToSearch) ||
+                email.subject.toLowerCase().includes(wordToSearch) ||
+                email.text.toLowerCase().includes(wordToSearch)
+        });
+        resolve(refiendEmails);
+        reject('Service Failed To Filter Emails');    
+    });
 }
 
 function sendMail(mailContent) {
@@ -174,5 +191,9 @@ export default {
     sortByLateDate,
     showMail,
     getSentEmails,
+<<<<<<< HEAD
     sendMail
+=======
+    search
+>>>>>>> 2b2de2edf768a6343f2351b2ea80d0c3ce1fb38d
 }
