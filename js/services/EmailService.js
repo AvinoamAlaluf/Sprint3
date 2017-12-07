@@ -113,9 +113,12 @@ function getSentEmails() {//need Checkings
 
 
 function emptyMail() {
-    var emptyMail = { id: _getNextId(), subject: '', text: '', to: '', from: 'ofirnoam', read: false, sentAt: Date.now(), marked: false };
-    console.log(emptyMail);
-    return emptyMail;
+    return new Promise((resolve,reject) =>{
+        var emptyMail = { id: _getNextId(), subject: '', text: '', to: '', from: 'ofirnoam', read: false, sentAt: Date.now(), marked: false };
+        // console.log(emptyMail);
+       resolve(emptyMail);
+    //    reject('service Failed To provide empty mail Obj');
+    })
 }
 
 function _getNextId() {
@@ -175,9 +178,13 @@ function search(searchedValue) {
     });
 }
 
-function sendMail(mailContent) {
-    console.log('sended');
-    // emails.push(mailContent)
+function addMail(mailContent) {
+    return new Promise((resolve,reject) =>{
+        emails.push(mailContent)
+        console.log('sended');
+        resolve(console.log('Email Added!'));
+        reject(console.log('service Failed To Add Email!'));
+    })
 }
 
 export default {
@@ -191,6 +198,6 @@ export default {
     sortByLateDate,
     showMail,
     getSentEmails,
-    sendMail,
+    addMail,
     search
 }

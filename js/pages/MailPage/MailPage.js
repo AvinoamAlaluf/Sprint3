@@ -16,7 +16,7 @@ export default {
             </div>
 
             
-            <mail-compose v-if="showMailCompose"></mail-compose>
+            <mail-compose  v-if="showMailCompose"  @newMail="sendEmail"></mail-compose>
         </section>
     `,
     data() {
@@ -72,7 +72,18 @@ export default {
         startSearching(valueToSearch){
             EmailService.search(valueToSearch).then(refinedEmails => this.emails = refinedEmails)
             .catch(err=> console.log('SERVICE ERROR: ',err ))
-        }
+        }, 
+        sendEmail(newMail){
+            EmailService.emptyMail()
+            .then(emptyMailObj =>{
+                emptyMailObj.to = newMail.composeTo;
+                emptyMailObj.subject = newMail.composeSubject;
+                emptyMailObj.text = newMail.composeText;
+                EmailService.addMail(emptyMailObj)
+                .then(console.log('Success Indeed'))
+                .catch(console.log('What a Failure'))
+            }).catch( ()=>console.log('Service failed to Get New Mail Obj'))
+        },
 
     },
 
