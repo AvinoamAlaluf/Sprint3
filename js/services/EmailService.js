@@ -191,9 +191,6 @@ export default {
     sortByLateDate,
     showMail,
     getSentEmails,
-<<<<<<< HEAD
-    sendMail
-=======
+    sendEmail,
     search
->>>>>>> 2b2de2edf768a6343f2351b2ea80d0c3ce1fb38d
 }
