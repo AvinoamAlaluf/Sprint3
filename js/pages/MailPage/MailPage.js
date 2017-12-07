@@ -2,6 +2,7 @@ import EmailService from '../../services/EmailService.js'
 import MailsList from '../../comps/mailComps/MailsList.js'
 import MailMenu from '../../comps/mailComps/MailMenu.js'
 import MailToolbar from '../../comps/mailComps/MailToolBar.js'
+import MailCompose from './MailCompose.js'
 
 
 export default {
@@ -14,6 +15,8 @@ export default {
                 <mails-list @dateClicked="sortByDateEndRevrse" @mailClicked="readMail" @fromClicked="sortBySender" :emails="emails" ></mails-list>
             </div>
 
+            
+            <mail-compose v-if="showMailCompose"></mail-compose>
         </section>
     `,
     data() {
@@ -21,7 +24,7 @@ export default {
             emails: null,
             sortedBySender: false,
             sortedByDate: true,
-            
+            showMailCompose: false
         }
     },
     methods: {
@@ -68,12 +71,19 @@ export default {
         }
 
     },
+
+    beforeUpdate(){
+        var route = this.$route.path;
+        if (route === '/mail/compose') this.showMailCompose = true; 
+        else this.showMailCompose = false;
+    },
     created() {
         this.sortByDate()
     },
     components: {
         MailsList,
         MailMenu,
-        MailToolbar
+        MailToolbar,
+        MailCompose
     }
 }

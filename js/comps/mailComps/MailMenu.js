@@ -5,7 +5,7 @@ export default {
         <section class="emailMenu">
             <div class="menuContainer">
                 <ul>
-                    <li @click="routeToCompose"><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
+                    <li href="#popup1" @click="routeToCompose"><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
                     <li @click="inboxClicked"><span>Inbox</span></li>
                     <li @click="sentClicked"><span>Sent</span></li>
                 </ul>

@@ -10,7 +10,7 @@ var myVue = new Vue({
         <section class="mainNav">
        
         
-        <nav>      
+        <nav v-if="showNav">      
             <img @click="navigateToHome" class="logoNav" src="../img/logo.png">
         <ul>
             <li @click="navigateToMail">Mail</li>
@@ -21,11 +21,16 @@ var myVue = new Vue({
             <router-view></router-view>
         </section>    
     `,
-    methods:{
-        
+    data:{
+        showNav: true,
     },
-    created() {
-
+    methods:{
+    },
+    beforeUpdate() {
+        console.log('hi');
+       var route = this.$route.path;
+       if (route === '/') this.showNav = false;
+       else this.showNav = true;
     },
     router: myRouter,
     mixins: [pagesNavigationMixin]

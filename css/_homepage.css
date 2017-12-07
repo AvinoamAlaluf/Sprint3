@@ -9,16 +9,21 @@
 
 .homepageHeader{
     color: white;
-    font-size: 70px;
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .homepageLogo{
     width: 20%;
 }
 
+
 .iconContainers{
     display: flex;
-    width: 40%;
+    width: 400px;
+    justify-content: space-between;
 }
 
 .iconContainer{

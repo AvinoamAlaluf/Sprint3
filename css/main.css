@@ -27,6 +27,7 @@ body {
     width: 60%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 nav ul{
@@ -38,10 +39,10 @@ nav ul{
 }
 
 .logoNav{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 nav li{

@@ -158,6 +158,11 @@ function showMail(id){
         foundMail.read = true;    
 }
 
+function sendMail(mailContent) {
+    console.log('sended');
+    // emails.push(mailContent)
+}
+
 export default {
     getEmails,
     getMail,
@@ -168,5 +173,6 @@ export default {
     sortByDate,
     sortByLateDate,
     showMail,
-    getSentEmails
+    getSentEmails,
+    sendMail
 }

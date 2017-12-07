@@ -6,7 +6,7 @@ export default {
 
         <section class="homepageContainer">
 
-        <h1 class="homepageHeader"><img class="homepageLogo" src="../img/logo.png">ork shop</h1>
+        <h1 class="homepageHeader"><img class="homepageLogo" src="../img/logo.png"><span>ork shop</span></h1>
         
         <div class="iconContainers">
         <div @click="navigateToMail" class="iconContainer mailIcon">
