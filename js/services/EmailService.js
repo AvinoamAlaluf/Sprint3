@@ -24,7 +24,7 @@ const emails = [{
     text: 'lorem ipsum tahath ass zhoppa tuhes koo',
     to: 'Ofir',
     from: 'Avinoam',
-    read: false,
+    read: true,
     sentAt: 1512575182386,
     marked: false
 }
@@ -191,6 +191,6 @@ export default {
     sortByLateDate,
     showMail,
     getSentEmails,
-    sendEmail,
+    sendMail,
     search
 }
