@@ -14,6 +14,7 @@ export default {
                 <mail-toolbar  
                 @clickedRead="filterRead"
                 @clickedUnread="filterUnread"
+                @clickedMarked="filterMarked"
                 @clickedAll="sortByDate"
                 @searchEvent="startSearching">
                 </mail-toolbar>
@@ -92,6 +93,12 @@ export default {
         },
         filterUnread(){
             EmailService.getUnreadEmails()
+            .then(emails => {
+                this.emails = emails;
+            })
+        }, 
+        filterMarked(){
+            EmailService.getMarkedEmails()
             .then(emails => {
                 this.emails = emails;
             })

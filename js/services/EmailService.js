@@ -95,10 +95,10 @@ function getUnmarkedEmails() {//need Checkings
 
 function getMarkedEmails() {//need Checkings
     return new Promise((resolve, reject) => {
-        let unreadEmails = emails.filter(email => {
+        let markedEmails = emails.filter(email => {
             return email.marked
         })
-        resolve(emails);
+        resolve(markedEmails);
     });
 }
 
@@ -187,6 +187,11 @@ function addMail(mailContent) {
     })
 }
 
+function changeMarked(id){
+    var mailTochangeIdx = emails.findIndex(mail => mail.id === id);
+    emails[mailTochangeIdx].marked = !emails[mailTochangeIdx].marked;
+}
+
 export default {
     getEmails,
     getMail,
@@ -202,5 +207,6 @@ export default {
     getReadEmails,
     getUnreadEmails,
     addMail,
-    
+    changeMarked,
+    getMarkedEmails
 }

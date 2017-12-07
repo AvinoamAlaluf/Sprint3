@@ -11,7 +11,7 @@ export default {
                 <li @click="dateClicked">Date</li>
             </ul>
             <ul @click="mailClicked(email.id)" class="email" :class="{'readed' : email.read}" v-for="(email, idx) in emails">
-                <li class="favorite" ><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li @click.stop="mailMarked(email.id)" class="favorite" :class="{'marked' : email.marked}"><i class="fa fa-star" aria-hidden="true"></i></li>
                 <li>{{email.from}}</li>
                 <li>{{email.subject}}</li>
                 <li>{{email.sentAt}}</li>
@@ -35,6 +35,9 @@ export default {
         },
         mailClicked(id){
             this.$emit('mailClicked',id);
+        },
+        mailMarked(id){
+            EmailService.changeMarked(id);
         }
     },
     created() {

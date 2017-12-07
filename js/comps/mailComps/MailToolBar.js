@@ -9,13 +9,13 @@ export default {
         <ul>
            <li class='active has-sub'><a href='#'><span>Fliter</span></a>
               <ul>
-                 <li class='has-sub'><a href='#'@click="clickedAll"><span>All</span></a></li>
+                 <li class='has-sub'><a href='#' @click="clickedAll"><span>All</span></a></li>
                  <li class='has-sub'><a href='#' @click="clickedRead"><span>Read</span></a></li>
                  <li class='has-sub'><a href='#' @click="clickedUnread"><span>Unread</span></a></li>
-              <li class='has-sub'><a href='#'><span>Marked</span></a></li>
+                 <li class='has-sub'><a href='#' @click="clickedMarked"><span>Marked</span></a></li>
               </ul>
            </li>
-        
+           
         </ul>
         </div>
         </form>
@@ -50,6 +50,9 @@ export default {
         clickedAll(){
             this.$emit('clickedAll');
         },
+        clickedMarked(){
+            this.$emit('clickedMarked');
+        }
     },
     created() {
         console.log('toolbar');

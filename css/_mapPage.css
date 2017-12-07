@@ -1,0 +1,21 @@
+.mapPageContainer{
+    width: 90%;
+    height: 100%;    
+    display: flex;
+    justify-content: space-around;
+}
+
+.map {
+    /* height: 100%; */
+    width: 80%;
+    position: fixed;
+    border: solid 2px black;
+    border-radius: 10px;
+}
+
+.locationsContanier{
+    background: rgba(247, 247, 247, 0.205); 
+    height: 500px;   
+    width: 19%;
+    border-radius: 10px;    
+}

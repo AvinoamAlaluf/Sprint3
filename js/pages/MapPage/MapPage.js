@@ -1,18 +1,25 @@
+import MapService from '../../services/MapService.js';
+
 export default {
     template: `
-        <section >
-        <h1>map</h1>
+        <section class="mapPageContainer">
+        <div class="locationsContanier">
+        
+        </div>
+        <div class="map">
+        
+        </div>
         </section>
     `,
     data() {
         return {
-         
+
         }
     },
     methods: {
-      
+
     },
-    created() {
-        
+    mounted() {
+        MapService.initMap(32.085300,34.781768);
     }
 }
