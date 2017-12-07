@@ -4,6 +4,10 @@ export default {
     template: `
         <section >
 
+     <transition name="custom-classes-transition"
+                enter-active-class="animated tada"
+                leave-active-class="animated bounceOutRight">      
+
         <div id="popup1" class="overlay">
             <div class="popup">
                 <h2>{{headLine}}</h2>
@@ -26,18 +30,23 @@ export default {
             </div>
         </div>
 
+        </transition>
         </section>
     `,
     data() {
         return {
             isCompose: false,
-            newMail: { composeTo: '', composeSubject: '', composeText: '' },
+            newMail: {
+                composeTo: '',
+                composeSubject: '',
+                composeText: ''
+            },
             mailToShow: {},
             headLine: 'Compose A New Mail'
         }
     },
     props: {
-        selectedMail:Object
+        selectedMail: Object
     },
     methods: {
         closeCompose() {
@@ -55,9 +64,9 @@ export default {
     created() {
         this.isCompose = this.$route.path.match(/\/mail\/+\d+/) === null;
         if (!this.isCompose) {
-            this.headLine = this.selectedMail.from//needs changing to the
+            this.headLine = this.selectedMail.from //needs changing to the
         }
         console.log('isCompose', this.isCompose);
     },
-    
+
 }

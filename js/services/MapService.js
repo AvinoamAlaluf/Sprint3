@@ -57,7 +57,21 @@ function handleLocationError(error) {
     }
 }
 
+function search() {
+    var searchInput = document.querySelector('.searchInput');
+    
+    if (searchInput.value) {
+        var input = document.querySelector('.searchInput').value;
+        axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${input}&key=AIzaSyD7eT89AbQfxKhzxEKg_lah7h0MnX_9dZc`)
+        .then(function (res) {
+         var latUser = res.data.results[0].geometry.location.lat;   
+         var lngUser = res.data.results[0].geometry.location.lng;   
+        initMap(latUser, lngUser);
+        });
+    }
+}
+
 export default {
     initMap,
-    
+    search
  }
