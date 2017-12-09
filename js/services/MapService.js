@@ -6,7 +6,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         id: 1,
         name: 'Home',
         description: 'Where You Live,Dummie',
-        imgs: ['urlpath.jpg'],
+        imgs: ['../../img/placesImgs/1.jpg'],
         lat: 32.0447931,
         lang: 34.7727874,
         tags: ['food', 'pleasure', 'sleep'],
