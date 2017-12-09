@@ -9,9 +9,9 @@ export default {
     },
     methods: {
         navigateToHome(){
-            this.$router.push('/')
+            this.$router.push('/');
         },
-        navigateToMail(){
+        navigateToMail(){           
             this.$router.push('/mail')
         },
         navigateToNotes(){

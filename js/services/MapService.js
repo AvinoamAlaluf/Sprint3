@@ -159,6 +159,7 @@ function search() {
 
 export default {
     initMap,
+    places,
     search,
     emptyPlace,
     addPlace,

@@ -28,8 +28,13 @@
     width: 150px;
     display: flex;
     flex-direction: row-reverse;
-    color: rgb(172, 9, 9);
+    color: transparent;
+    transition: 0.5s;     
 }
+
+.note:hover > .deleteIcon{
+    color: rgb(172, 9, 9);
+}    
 
 .myNote{
     background: url(../img/myNote.png);

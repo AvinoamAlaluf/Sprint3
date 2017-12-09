@@ -46,6 +46,17 @@
     height: 100%;
     font-size: 1.2em;
     font-weight: bolder;
+    justify-content: space-between;
+}
+
+.removeEmail{
+    padding-right: 10px;
+    color: transparent;
+    transition: 0.4s;         
+}
+
+.email:hover > li > .removeEmail{
+    color: rgba(56, 56, 56, 0.726);  
 }
 
 .favorite{
@@ -105,6 +116,7 @@
 .readed{
     background: rgba(138, 139, 138, 0.3);
     font-family: lato-regular;
+    color: rgb(70, 69, 69);    
     /* font-size: 0.8em;     */
 }
 

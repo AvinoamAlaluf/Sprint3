@@ -13,9 +13,9 @@ var myVue = new Vue({
         <nav v-if="showNav">      
             <img @click="navigateToHome" class="logoNav" src="../img/logo.png">
         <ul>
-            <li @click="navigateToMail">Mail</li>
-            <li @click="navigateToNotes">Notes</li>
-            <li @click="navigateToMap">Map</li>
+            <li :class="{'picked' : mailPicked}" @click="navigateToMail">Mail</li>
+            <li :class="{'picked' : notesPicked}" @click="navigateToNotes">Notes</li>
+            <li :class="{'picked' : mapPicked}" @click="navigateToMap">Map</li>
         </ul>
         </nav>
         </header>
@@ -24,6 +24,9 @@ var myVue = new Vue({
     `,
     data:{
         showNav: true,
+        mailPicked: false,
+        notesPicked: false,
+        mapPicked: false
     },
     methods:{
         navControl(){
@@ -31,13 +34,39 @@ var myVue = new Vue({
             var route = this.$route.path;
             if (route === '/') this.showNav = false;
             else this.showNav = true;
+        },
+        checkCurrentRoute(){
+            var currRoute = this.$route.path;
+            switch (currRoute) {
+                case '/mail':
+                this.mailPicked = true;
+                this.notesPicked = false;
+                this.mapPicked = false; 
+                    break;
+                case '/notes':
+                this.notesPicked = true;
+                this.mailPicked = false;
+                this.mapPicked = false; 
+                    break;
+                case '/map':
+                this.mapPicked = true;
+                this.mailPicked = false;
+                this.notesPicked = false;
+                    break;
+            }
         }
     },
     created(){
         this.navControl();
+        this.checkCurrentRoute();
     },
     beforeUpdate() {
         this.navControl();
+    },
+    watch: {
+        '$route'(to, from) {
+            this.checkCurrentRoute();
+        }
     },
     router: myRouter,
     mixins: [pagesNavigationMixin]

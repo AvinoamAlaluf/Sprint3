@@ -13,13 +13,18 @@
     border-radius: 10px;
 }
 
-.locationsContanier{
+.placesContanier{
+    max-width: 19%;
+}    
+
+.placesList{
     background: rgba(247, 247, 247, 0.205); 
-    height: 480px;   
-    width: 19%;
+    height: 430px;   
+    max-width: 100%;
     border-radius: 10px; 
     display: flex;
     flex-direction: column;
+    /* justify-content: space-between; */
 }
 
 .searchInput{
@@ -40,4 +45,40 @@
 .searchInput:focus{
     /* border: 2px solid rgba(10, 10, 10, 0.479); */
     outline: none;
+}
+
+.place{
+    font-size: 20px;
+    color:white;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    border-bottom: 1px solid gray;
+    padding: 10px 0;
+}
+
+.place:hover{
+    background: rgba(247, 247, 247, 0.2); 
+    cursor: pointer;
+}
+
+.place h3{
+    font-size: 16px;
+    width: 90%;
+    margin: 0;
+}
+
+.removePlace{
+    max-width: 10px;
+    height: 30px;
+    font-size: 30px;
+    align-self: flex-end; 
+    color: transparent;
+    transition: 0.3s; 
+}
+
+.place:hover > .removePlace{
+    color: rgba(255, 251, 251, 0.9);
 }

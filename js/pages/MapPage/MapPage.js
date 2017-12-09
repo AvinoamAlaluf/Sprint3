@@ -1,11 +1,12 @@
 import MapService from '../../services/MapService.js';
+import MapMenu from './MapMenu.js';
 
 export default {
     template: `
         <section class="mapPageContainer">
-        <div class="locationsContanier">
-        <input placeholder="🔎 search" class="searchInput" @keydown="searchPlace" type="text">
-        </div>
+        
+        <map-menu></map-menu>
+
         <div class="map">
         
         </div>
@@ -23,5 +24,8 @@ export default {
     },
     mounted() {
         MapService.initMap(32.085300,34.781768);
+    },
+    components: {
+        MapMenu
     }
 }

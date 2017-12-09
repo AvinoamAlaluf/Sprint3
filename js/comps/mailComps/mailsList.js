@@ -14,7 +14,10 @@ export default {
                 <li @click.stop="mailMarked(email.id)" class="favorite" :class="{'marked' : email.marked}"><i class="fa fa-star" aria-hidden="true"></i></li>
                 <li>{{email.from}}</li>
                 <li>{{email.subject}}</li>
-                <li>{{email.sentAt}}</li>
+                <li>
+                {{email.sentAt}} 
+                <div class="removeEmail" @click.stop="removeEmail(email.id)"><i class="fa fa-times" aria-hidden="true"></i></div>
+                </li>
             </ul>
         
 
@@ -38,6 +41,9 @@ export default {
         },
         mailMarked(id){
             EmailService.changeMarked(id);
+        },
+        removeEmail(id){
+            EmailService.deleteMail(id);
         }
     },
     created() {

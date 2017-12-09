@@ -4,9 +4,7 @@ export default {
     template: `
         <section >
 
-     <transition name="custom-classes-transition"
-                enter-active-class="animated tada"
-                leave-active-class="animated bounceOutRight">      
+        <transition name="fade">   
 
         <div id="popup1" class="overlay">
             <div class="popup">
