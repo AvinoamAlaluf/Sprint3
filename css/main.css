@@ -4,6 +4,8 @@
 @import "_mailToolbar.css";
 @import "_notes.css";
 @import "_mapPage.css";
+@import "_showPlace.css";
+@import "_editPlace.css";
 
 body {
     display: flex;

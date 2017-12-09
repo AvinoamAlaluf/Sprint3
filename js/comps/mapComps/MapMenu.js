@@ -1,16 +1,18 @@
 import MapService from '../../services/MapService.js';
 import PlaceShow from './PlaceShow.js'
+import PlaceEdit from './PlaceEdit.js'
 
 export default {
     template: `
         <section class="placesContanier">
         
         
-        <div class="placesList">
+        <div class="placesList" >
 
-            <place-show v-if="false"></place-show>
+            <place-show v-if="false" ></place-show>
+            <place-edit ></place-edit>
 
-            <div >
+            <div v-if="false">
                 <input placeholder="🔎 search" class="searchInput" @keydown="searchPlace" type="text">                
                 <div class="place" @mouseover="placeHoverd" @click="placeClicked(place)" v-for="(place,idx) in places">
                     <h3>{{place.name}}</h3>
@@ -42,7 +44,8 @@ export default {
         }
     },
     components: {
-        PlaceShow
+        PlaceShow,
+        PlaceEdit
     },
     mounted() {
 
