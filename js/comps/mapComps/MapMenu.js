@@ -6,17 +6,17 @@ export default {
         <section class="placesContanier">
         
         
-        <div class="placesList"  >
-            <place-show ></place-show>
+        <div class="placesList">
 
-            <div v-if="false">
-            <input placeholder="🔎 search" class="searchInput" @keydown="searchPlace" type="text">
-            
-            <div class="place" @mouseover="placeHoverd" @click="placeClicked(place)" v-for="(place,idx) in places">
-            <h3>{{place.name}}</h3>
-            <h3 class="removePlace" @click="removePlace(place.id)"><i class="fa fa-times" aria-hidden="true"></i></h3>
+            <place-show v-if="false"></place-show>
+
+            <div >
+                <input placeholder="🔎 search" class="searchInput" @keydown="searchPlace" type="text">                
+                <div class="place" @mouseover="placeHoverd" @click="placeClicked(place)" v-for="(place,idx) in places">
+                    <h3>{{place.name}}</h3>
+                    <h3 class="removePlace" @click="removePlace(place.id)"><i class="fa fa-times" aria-hidden="true"></i></h3>
+                </div>
             </div>
-        </div>
         </div>
 
         
