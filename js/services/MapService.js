@@ -10,7 +10,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         lat: 32.0447931,
         lang: 34.7727874,
         tags: ['food', 'pleasure', 'sleep'],
-        marker: ''  ///////////////here you will put the marker type, doensn't have to be a string
+        marker: 'red'  
     },
     {
         id: 2,
@@ -20,7 +20,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         lat: 32.197494,
         lang: 34.9017573,
         tags: ['food', 'pleasure', 'sleep'],
-        marker: ''  ///////////////here you will put the marker type, doensn't have to be a string
+        marker: 'green'  
     },
     {
         id: 3, ///this one is for Shahar
@@ -30,7 +30,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         lat: 32.04671,
         lang: 34.7670063,
         tags: ['death'],
-        marker: ''  ///////////////here you will put the marker type, doensn't have to be a string
+        marker: 'blue'  
     },
 
 ];
@@ -95,10 +95,20 @@ function initMap(latUser, lngUser) {
         zoom: 16,
         center: location
     });
-    var marker = new google.maps.Marker({
-        position: location,
-        map: map
-    });
+
+    places.forEach(place=>{
+        var marker = new google.maps.Marker({
+            position: {
+                lat: place.lat,
+                lng: place.lang
+            },
+            animation: google.maps.Animation.DROP,
+            // label: place.name[0],
+            icon: `http://maps.google.com/mapfiles/ms/icons/${place.marker}-dot.png`,
+            map: map
+        });
+    })    
+    
 
     gUrl = map.data.map.mapUrl;
 
