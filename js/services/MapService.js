@@ -92,7 +92,7 @@ function initMap(latUser, lngUser) {
         lng: lngUser
     };
     var map = new google.maps.Map(document.querySelector('.map'), {
-        zoom: 4,
+        zoom: 16,
         center: location
     });
     var marker = new google.maps.Marker({
