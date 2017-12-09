@@ -4,29 +4,29 @@ export default {
     template: `
         <section class="placeToShow">        
             
-            <h2>{{placeToShow.name}}</h2>
+            <h2>{{localPlaceToShow.name}}</h2>
             <div>
-                <img :src="placeToShow.imgs"/>
+                <img :src="localPlaceToShow.imgs"/>
             </div>
             <div class="imgArrows">
                 <a><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></a>
                 <a><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></a>
             </div>
-            <label>{{placeToShow.description}}</label>
-            <label>Tag:# <span> {{placeToShow.tag}} </span></label>
+            <label>{{localPlaceToShow.description}}</label>
+            <label>Tag:# <span> {{localPlaceToShow.tag}} </span></label>
         </section>
     `,
     data() {
         return {
-            
+            localPlaceToShow : {}
         }
     },
     methods: {
         getPlaceToShow(){
-            let id = this.placeToShow.id;
+            let id = placeToShow.id;
             console.log(id);
             MapService.getPlace(id).then(foundPlace => {
-                this.placeToShow = foundPlace;
+                this.localPlaceToShow = foundPlace;
                 console.log(foundPlace);
             }).catch(console.log('Service couldnt get required place'))
         }

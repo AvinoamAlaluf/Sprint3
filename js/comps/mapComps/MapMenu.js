@@ -22,12 +22,12 @@ export default {
     `,
     data() {
         return {
-           placeToShow: {},
-           showDetails: false
+            placeToShow: {},
+            showDetails: false
         }
     },
     methods: {
-        showPlace(place){
+        showPlace(place) {
             this.placeToShow = place;
             this.showDetails = true;
         }
@@ -41,6 +41,6 @@ export default {
 
     },
     created() {
-        
-}
+        this.showPlace(place)
+    }
 }
