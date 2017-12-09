@@ -11,7 +11,7 @@ export default {
         <div class="placesDiv"  >
             
             <place-show v-if="showDetails"></place-show>
-            <place-edit ></place-edit>            
+            <place-edit v-if=false></place-edit>
             <place-list @placeClicked="showPlace"></place-list>
 
         </div>
