@@ -9,7 +9,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         imgs: ['../../img/placesImgs/1.jpg'],
         lat: 32.0447931,
         lang: 34.7727874,
-        tags: ['food', 'pleasure', 'sleep'],
+        tag: 'Cemetery',
         marker: 'red'  
     },
     {
@@ -19,17 +19,17 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         imgs: ['urlpath.jpg'],
         lat: 32.197494,
         lang: 34.9017573,
-        tags: ['food', 'pleasure', 'sleep'],
+        tag: 'pleasure',
         marker: 'green'  
     },
     {
         id: 3, ///this one is for Shahar
         name: 'Society for Prevention of Cruelty to Animals in Israel',
         description: 'Where Animals Start And End',
-        imgs: ['urlpath.jpg'],
+        imgs: ['../../img/placesImgs/1.jpg'],
         lat: 32.04671,
         lang: 34.7670063,
-        tags: ['death'],
+        tag: 'death',
         marker: 'blue'  
     },
 
@@ -44,7 +44,7 @@ function _getNextId() {
 
 function emptyPlace() {
     return new Promise((resolve, reject) => {
-        let newEmptyPlace = { id: _getNextId(), name: '', description: '', imgs: [], lat: 0, lang: 0, tags: [], marker: '' };
+        let newEmptyPlace = { id: _getNextId(), name: '', description: '', imgs: [], lat: 0, lang: 0, tag:'', marker: '' };
         resolve(newEmptyPlace);
         reject('service Failed To provide empty placeObj');
     })

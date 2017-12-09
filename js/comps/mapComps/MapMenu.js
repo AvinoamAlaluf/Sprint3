@@ -1,6 +1,7 @@
 import MapService from '../../services/MapService.js';
 import PlaceShow from './PlaceShow.js'
 import PlaceList from './PlaceList.js'
+import PlaceEdit from './PlaceEdit.js'
 
 export default {
     template: `
@@ -10,6 +11,7 @@ export default {
         <div class="placesDiv"  >
             
             <place-show v-if="showDetails"></place-show>
+            <place-edit ></place-edit>            
             <place-list @placeClicked="showPlace"></place-list>
 
         </div>
@@ -32,7 +34,8 @@ export default {
     },
     components: {
         PlaceShow,
-        PlaceList
+        PlaceList,
+        PlaceEdit
     },
     mounted() {
 
