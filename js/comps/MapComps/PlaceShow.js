@@ -7,6 +7,7 @@ export default {
             <h2>placeToShow.name</h2>
             <label>placeToShow.description</label>
             <label>Tags: <section v-for="tag in placeToShow.tags"></section></label>
+            <h1>assssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</h1>
         </section>
     `,
     data() {
@@ -16,7 +17,7 @@ export default {
     },
     methods: {
         getPlaceToShow(){
-            MapService.getPlace(id).then(foundPlace => {
+            MapService.getPlace().then(foundPlace => {
                 this.placeToShow = foundPlace;
             }).catch(console.log('Service couldnt get required place'))
         }
@@ -25,6 +26,7 @@ export default {
 
     },
     created() {
-        placeToShow()
+        // this.getPlaceToShow()
+        console.log('JSDFJSDFJSDFJSDFJJSDFJJSDFJJSDFJJ');
     }
 }

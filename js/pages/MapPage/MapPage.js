@@ -1,6 +1,7 @@
 import MapService from '../../services/MapService.js';
 import MapMenu from '../../comps/MapComps/MapMenu.js';
 
+
 export default {
     template: `
         <section class="mapPageContainer">
