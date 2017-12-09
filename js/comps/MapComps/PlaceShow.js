@@ -11,7 +11,7 @@ export default {
     `,
     data() {
         return {
-            placeToShow: {}
+            
         }
     },
     methods: {
@@ -25,8 +25,12 @@ export default {
     mounted() {
 
     },
+     props: {
+        placeToShow: Object
+     },
     created() {
         this.getPlaceToShow()
         console.log('JSDFJSDFJSDFJSDFJJSDFJJSDFJJSDFJJ');   
     }
 }
+
