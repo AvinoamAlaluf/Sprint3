@@ -23,7 +23,9 @@ export default {
     },
     methods: {
         getPlaceToShow(){
-            MapService.getPlace(1).then(foundPlace => {
+            let id = this.placeToShow.id;
+            console.log(id);
+            MapService.getPlace(id).then(foundPlace => {
                 this.placeToShow = foundPlace;
                 console.log(foundPlace);
             }).catch(console.log('Service couldnt get required place'))
