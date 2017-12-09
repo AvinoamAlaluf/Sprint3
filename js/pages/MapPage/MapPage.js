@@ -1,5 +1,5 @@
 import MapService from '../../services/MapService.js';
-import MapMenu from '../../comps/mapComps/MapMenu.js';
+import MapMenu from '../../comps/MapComps/MapMenu.js';
 
 export default {
     template: `
