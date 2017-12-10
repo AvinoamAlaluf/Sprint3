@@ -13,9 +13,12 @@ export default {
                 <a><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></a>
                 <a><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></a>
             </div>
-            <label>Edit Description:</label>
+            <label>Description:</label>
             <input v-model="placeToAdd.description"></input>
-            
+            <label>Images:</label>
+            <div>
+                <input v-model="imgToAdd"></input><a @click="addImgToObjArr"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            </div>
             Tag: 
             <div class="select">
                 <select v-model="placeToAdd.tag">
@@ -33,7 +36,8 @@ export default {
     `,
     data() {
         return {
-            placeToAdd: {}
+            placeToAdd: {},
+            imgToAdd: ''
         }
     },
     methods: {
@@ -42,7 +46,6 @@ export default {
                 .then(emptyPlaceObj => {
                     this.placeToAdd = emptyPlaceObj;
                     console.log('EMPTY', this.placeToAdd);
-                    this.placeToAdd = {};//claering the Obj
                 })
                 .catch(console.log('Service Coulndnt get an empty Template'));
         },
@@ -51,8 +54,14 @@ export default {
             this.$emit('exitEdit');//need to add the bind when calling PLACEADD comp
         },
         saveNewPlace() {
+            this.placeToAdd.imgs = this.imgsToAdd;
             MapService.addPlace(this.placeToAdd)
-                .then(console.log('Place Added To Service', this.placeToAdd))                
+                .then(this.placeToAdd = {})
+        },
+        addImgToObjArr() {
+            if (!this.imgToAdd) return;
+            this.placeToAdd.imgs.push(this.imgToAdd);
+            this.imgToAdd = '';
         }
     },
     created() {
