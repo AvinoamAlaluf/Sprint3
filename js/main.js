@@ -11,7 +11,7 @@ var myVue = new Vue({
        
         <header>
         <nav v-if="showNav">      
-            <img @click="navigateToHome" class="logoNav" src="../img/logo.png">
+            <img @click="navigateToHome" class="logoNav" src="./img/logo.png">
         <ul>
             <li :class="{'picked' : mailPicked}" @click="navigateToMail">Mail</li>
             <li :class="{'picked' : notesPicked}" @click="navigateToNotes">Notes</li>
