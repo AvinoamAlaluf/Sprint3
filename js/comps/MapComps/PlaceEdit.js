@@ -2,7 +2,8 @@ import MapService from '../../services/MapService.js';
 
 export default {
     template: `
-        <section class="placeToEdit">        
+        <section class="placeToEdit">   
+        <div class="exitEdit" @click.stop="exitEdit"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>     
             <label>Title:</label>
             <input  :value="placeToEdit.name" ></input>
             <label>Edit Images:</label>
@@ -43,6 +44,9 @@ export default {
                 this.placeToEdit = foundPlace;
                 console.log(foundPlace);
             }).catch(console.log('Service couldnt get required place'))
+        },
+        exitEdit(){
+            this.$emit('exitEdit');            
         }
     },
     mounted() {

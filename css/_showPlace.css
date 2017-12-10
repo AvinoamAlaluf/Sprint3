@@ -11,7 +11,7 @@
     width: -webkit-fill-available;
 }
 
-.placeToShow > div{
+.placeImg{
     display: flex;
     width: -webkit-fill-available;
 } 
@@ -30,6 +30,21 @@
 .imgArrows a:hover {
     color: white;
 }
+
+.placeTop{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.placeTop i{
+    cursor: pointer;
+}
+
+.exitEdit{
+    cursor: pointer;    
+}
+
 
 
 

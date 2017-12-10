@@ -10,18 +10,26 @@ export default {
             <h3>{{place.name}}</h3>
             <h3 class="removePlace" @click="removePlace(place.id)"><i class="fa fa-times" aria-hidden="true"></i></h3>
             </div>
+
+            <div class="place" v-if="showAddPlace">
+            <h3>{{tel aviv}}</h3>
+            </div>
             
         </section>
     `,
     data() {
         return {
             places: [],
-            showList: true
+            showList: true,
+            showAddPlace: false
         }
     },
     methods: {
         searchPlace(evt) {
-            if (evt.keyCode === 13) MapService.search();
+            if (evt.keyCode === 13){
+                MapService.search();
+                this.showAddPlace = true;
+            } 
         },
         placeClicked(place) {
             // console.log(place);

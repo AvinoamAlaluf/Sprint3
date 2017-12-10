@@ -2,13 +2,17 @@ import MapService from '../../services/MapService.js';
 
 export default {
     template: `
-        <section class="placeToShow">        
+        <section class="placeToShow">      
         
-        <div class="exitPlace" @click.stop="exitPlace"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <div class="placeTop">
+                <div class="exitPlace" @click.stop="exitPlace"><i class="fa fa-arrow-left" aria-hidden="true"></i></div> 
+                <div class="editPlace" @click.stop="editPlace"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>                
+        </div>
+        
         </div>
         
             <h2>{{placeToShow.name}}</h2>
-            <div>
+            <div class="placeImg">
                 <img :src="placeToShow.imgs"/>
             </div>
             <div class="imgArrows">
@@ -34,6 +38,9 @@ export default {
         },
         exitPlace(){
             this.$emit('exitPlace');            
+        },
+        editPlace(){
+            this.$emit('editPlace'); 
         }
     },
     mounted() {
