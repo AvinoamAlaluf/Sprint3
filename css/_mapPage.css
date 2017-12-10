@@ -88,6 +88,12 @@
     color: rgba(255, 251, 251, 0.9);
 }
 
+.placesListTop{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;   
+}
 
 /* *****************radio buttons********************* */
 
@@ -96,7 +102,8 @@
     align-items: center;
     font-size: 10px;
     justify-content: space-between;
-    width: 65%;
+    width: 100%;
+    text-align: center;
 }
 
 .radio {

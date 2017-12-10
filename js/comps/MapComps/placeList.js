@@ -4,17 +4,17 @@ export default {
     template: `
         <section class="placesList" v-if="showList"> 
             
-            <div>
+            <div class="placesListTop">
             <input placeholder="🔎 search" class="searchInput" @keydown="searchPlace" type="text">
             <i v-if="showAddPlace" class="fa fa-plus" aria-hidden="true"></i>            
             </div>
             
            <div class="radioSearch">
-                <input v:model="radioSearch" class="radio" type="radio" id="f-option" name="selector">
-                <label for="f-option">my places</label>
+                <input checked v:model="radioSearch" class="radio" type="radio" id="f-option" name="selector">
+                <label for="f-option">search in my places</label>
                 
                 <input v:model="radioSearch" class="radio" id="s-option" type="radio" name="selector">
-                <label for="s-option">search place</label>
+                <label for="s-option">search for new place</label>
    
            </div>
           
