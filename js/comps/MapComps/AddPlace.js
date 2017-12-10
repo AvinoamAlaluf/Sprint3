@@ -55,8 +55,12 @@ export default {
         },
         saveNewPlace() {
             this.placeToAdd.imgs = this.imgsToAdd;
+
             MapService.addPlace(this.placeToAdd)
-                .then(this.placeToAdd = {})
+                .then(()=>{
+                    this.placeToAdd = {};
+                    this.$emit('addedPlace');
+                })
         },
         addImgToObjArr() {
             if (!this.imgToAdd) return;

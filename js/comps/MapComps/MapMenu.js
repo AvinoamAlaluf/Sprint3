@@ -12,9 +12,9 @@ export default {
         <div class="placesDiv"  >
             
             <place-show @editPlace="editPlace" @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="showDetails"></place-show>
-            <place-edit @exitEdit="exitEdit" v-if="showEdit"></place-edit>
-            <add-place v-if="false"></add-place>
-            <place-list @placeClicked="showPlace" v-if="showList"></place-list>
+            <place-edit @exitEdit="exitEdit" v-if="showEdit" :placeToShow="placeToShow"></place-edit>
+            <add-place @addedPlace="exitAdd" v-if="isShowAdd"></add-place>
+            <place-list @routeToAdd="showAdd" @placeClicked="showPlace" v-if="showList"></place-list>
             
 
         </div>
@@ -28,7 +28,8 @@ export default {
             placeToShow: {},
             showDetails: false,
             showList: true,
-            showEdit: false
+            showEdit: false,
+            isShowAdd: false,
         }
     },
     methods: {
@@ -37,17 +38,27 @@ export default {
             this.showDetails = true;
             this.showList = false;
         },
-        exitPlace(){
+        exitPlace() {
             this.showDetails = false;
             this.showList = true;
         },
-        editPlace(){
+        editPlace() {
             this.showDetails = false;
             this.showEdit = true;
         },
-        exitEdit(){
+        exitEdit() {
             this.showDetails = true;
             this.showEdit = false;
+        },
+        showAdd() {
+            console.log('SHOWADD INSIDEEEEEE');
+            this.isShowAdd = true;
+            this.showList = false;
+        },
+        exitAdd() {
+            console.log('SHOWADD INSIDEEEEEE');
+            this.isShowAdd = false;
+            this.showList = true;
         }
     },
     components: {

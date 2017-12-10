@@ -5,15 +5,16 @@ export default {
         <section class="placesList" v-if="showList"> 
             
             <div class="placesListTop">
-            <input placeholder="🔎 search" class="searchInput" @keydown="searchPlace" type="text">
-            <i v-if="showAddPlace" class="fa fa-plus" aria-hidden="true"></i>            
+            <input placeholder="🔎 search in map" class="searchInput" @keydown="searchPlace" type="text" v-if="isOnLocationSearch">
+            <input placeholder="🔎 search in saved locations" class="searchInput" @keydown="" type="text" v-if="!isOnLocationSearch">
+            <a @click="startRoutningToAdd"><i v-if="showAddPlace" class="fa fa-plus" aria-hidden="true"></i></a>            
             </div>
             
            <div class="radioSearch">
-                <input checked v:model="radioSearch" class="radio" type="radio" id="f-option" name="selector">
+                <input  checked v:model="radioSearch" class="radio" type="radio" id="f-option" name="selector" value="list" @click="changeSearchInput('list')">
                 <label for="f-option">search in my places</label>
                 
-                <input v:model="radioSearch" class="radio" id="s-option" type="radio" name="selector">
+                <input v:model="radioSearch" class="radio" id="s-option" type="radio" name="selector" value="map" @click="changeSearchInput('map')">
                 <label for="s-option">search for new place</label>
    
            </div>
@@ -31,7 +32,8 @@ export default {
             places: [],
             showList: true,
             showAddPlace: false,
-            radioSearch: ''
+            radioSearch: '', 
+            isOnLocationSearch :true
         }
     },
     methods: {
@@ -52,6 +54,16 @@ export default {
         },
         placeHoverd() {
 
+        },
+        changeSearchInput(value){
+            if (value === 'map') {
+                this.isOnLocationSearch = true;    
+            }else{
+                this.isOnLocationSearch = false;
+            }
+        },
+        startRoutningToAdd(){
+            this.$emit('routeToAdd')
         }
     },
     mounted() {

@@ -2,12 +2,12 @@ import MapService from '../../services/MapService.js';
 
 export default {
     template: `
-        <section class="placeToEdit">   
+        <section v-if="placeToEdit" class="placeToEdit" >   
             <label>Title:</label>
             <input  v-model="placeToEdit.name"></input>
             <label>Edit Images:</label>
             <div>
-                <img :src="placeToEdit.imgs"/>
+                <input> :src="placeToEdit.imgs"</>
             </div>
             <div class="imgArrows">
                 <a><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></a>
@@ -34,12 +34,15 @@ export default {
     `,
     data() {
         return {
-            placeToEdit: {}
+            placeToEdit: null
         }
+    },
+    props: {
+        placeToShow: Object
     },
     methods: {
         getplaceToEdit() {
-            MapService.getPlace(1).then(foundPlace => {
+            MapService.getPlace(this.placeToEdit.id).then(foundPlace => {
                 this.placeToEdit = foundPlace;
                 console.log(foundPlace);
             }).catch(console.log('Service couldnt get required place'))
@@ -51,14 +54,18 @@ export default {
             MapService.savePlace(placeToEdit)
                 .then(sericeResp => console.log('Service Respond To Update: ', sericeResp))
                 .catch(sericeResp => console.log('Service Respond To Update: ', sericeResp))
-                this.exitEdit();
+            this.exitEdit();
+
         }
     },
     mounted() {
 
     },
     created() {
+        this.placeToEdit= JSON.parse(JSON.stringify(this.placeToShow));
         this.getplaceToEdit()
+        
+
     },
     updated() {
         console.log(this.placeToEdit);

@@ -1,6 +1,7 @@
 var mapKey = 'AIzaSyD7eT89AbQfxKhzxEKg_lah7h0MnX_9dZc';
 var searchClicks = 0;
 var gUrl;
+var gCurrSearchLocation = {};
 var places = [//Hey Man, You can add fields to theses Objects if you need 
     {
         id: 1,
@@ -10,7 +11,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         lat: 32.0447931,
         lang: 34.7727874,
         tag: 'Gas station',
-        marker: _getColorByTag('Gas station')  
+        marker: _getColorByTag('Gas station')
     },
     {
         id: 2,
@@ -20,7 +21,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         lat: 32.197494,
         lang: 34.9017573,
         tag: 'Hotel',
-        marker: _getColorByTag('Hotel')   
+        marker: _getColorByTag('Hotel')
     },
     {
         id: 3, ///this one is for Shahar
@@ -30,7 +31,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         lat: 32.04671,
         lang: 34.7670063,
         tag: 'Cemetery',
-        marker: _getColorByTag('Cemetery')   
+        marker: _getColorByTag('Cemetery')
     },
 
 ];
@@ -44,14 +45,18 @@ function _getNextId() {
 
 function emptyPlace() {
     return new Promise((resolve, reject) => {
-        let newEmptyPlace = { id: _getNextId(), name: '', description: '', imgs: [], lat: 0, lang: 0, tag:'', marker: '' };
+        let newEmptyPlace = { id: _getNextId(), name: '', description: '', imgs: [], lat: 0, lang: 0, tag: '', marker: '' };
         resolve(newEmptyPlace);
         reject('service Failed To provide empty placeObj');
     })
 }
 
 function addPlace(placeObj) {
-    return new Promise((resolve, reject) => { 
+    placeObj.lng = gCurrSearchLocation.lng;
+    placeObj.lat = gCurrSearchLocation.lat;
+    placeObj.marker = _getColorByTag(placeObj.tag)
+    console.log('marker',placeObj);
+    return new Promise((resolve, reject) => {
         places.push(placeObj)
         console.log('Place pushed to array');
         resolve(console.log('Place Successfully Added!'));
@@ -72,11 +77,10 @@ function getPlace(id) {
     });
 }
 
-function savePlace(newPlaceContent, id) {///FOR SAVING AN EDITTED ITEM USER CHANGED // OR Pushing a new One
-    return new Promise((resolve,reject) => {
-        var placeToChangeIdx = places.findIndex(place => place.id === id);
-        if (placeToChangeIdx === -1) places.push(newPlaceContent);
-        else places.splice(placeToChangeIdx, 1, newPlaceContent);
+function savePlace(newPlaceContent) {///FOR SAVING AN EDITTED ITEM USER CHANGED // OR Pushing a new One
+    return new Promise((resolve, reject) => {
+        var placeToChangeIdx = places.findIndex(place => place.id === placeToEdit.id);
+        places.splice(placeToChangeIdx, 1, newPlaceContent);
         resolve('Item Updated Successfully');
         reject('Item Update Failed');
     })
@@ -98,7 +102,7 @@ function initMap(latUser, lngUser) {
         center: location
     });
 
-    places.forEach(place=>{
+    places.forEach(place => {
         var marker = new google.maps.Marker({
             position: {
                 lat: place.lat,
@@ -109,8 +113,8 @@ function initMap(latUser, lngUser) {
             icon: `http://maps.google.com/mapfiles/ms/icons/${place.marker}-dot.png`,
             map: map
         });
-    })    
-    
+    })
+
 
     gUrl = map.data.map.mapUrl;
 
@@ -162,27 +166,30 @@ function search() {
             .then(function (res) {
                 var latUser = res.data.results[0].geometry.location.lat;
                 var lngUser = res.data.results[0].geometry.location.lng;
+                gCurrSearchLocation.lat = latUser;
+                gCurrSearchLocation.lng = lngUser;
                 initMap(latUser, lngUser);
             });
     }
 }
 
-function _getColorByTag(tag){
+
+function _getColorByTag(tag) {
     switch (tag) {
         case 'Restuarant':
-                return 'orange';
+            return 'orange';
             break;
         case 'Hotel':
-                return 'green';
+            return 'green';
             break;
-        case 'Gas station':
-                return 'blue';
+        case 'Gas Station':
+            return 'blue';
             break;
         case 'Parking Lot':
-                return 'purple';
+            return 'purple';
             break;
         case 'Cemetery':
-                return 'red';        
+            return 'red';
             break;
     }
 }

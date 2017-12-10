@@ -41,7 +41,7 @@ export default {
             this.$emit('exitPlace');
         },
         editPlace() {
-            this.$emit('editPlace');
+            this.$emit('editPlace', this.localplaceToShow);
         }
     },
     mounted() {
