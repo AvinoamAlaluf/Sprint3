@@ -127,4 +127,13 @@
         order: 2;
     }
 
+    .myNote{
+        width: 300px;
+        height: 300px;
+    }
+
+    .deleteIcon{
+        color: rgb(148, 11, 11);
+    }
+
 }

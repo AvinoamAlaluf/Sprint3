@@ -11,17 +11,10 @@ export default {
         
         <div class="placesDiv"  >
             
-<<<<<<< HEAD
             <place-show @editPlace="editPlace" @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="showDetails"></place-show>
             <place-edit @exitEdit="exitEdit" v-if="showEdit"></place-edit>
             <add-place v-if="false"></add-place>
             <place-list @placeClicked="showPlace" v-if="showList"></place-list>
-=======
-            <place-show @editPlace="editPlace" @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="false"></place-show>
-            <place-edit @exitEdit="exitEdit" v-if="false"></place-edit>
-            <add-place v-if="true"></add-place>
-            <place-list @placeClicked="showPlace" v-if="false"></place-list>
->>>>>>> 1c232a5f293a587c3970b2f632e779b8afbe447b
             
 
         </div>

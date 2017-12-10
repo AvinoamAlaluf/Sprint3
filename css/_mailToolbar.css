@@ -163,3 +163,36 @@
 #cssmenu > ul > li.has-sub > a:hover:before {
   border-top: 5px solid #ffffff;
 }
+
+
+@media(max-width:700px){
+  #cssmenu > ul > li > a {
+
+  }
+
+  #cssmenu{
+    width: 100%;
+    height: 30px;
+  }
+
+  #cssmenu ul{
+    width: 100%;
+    /* width: 300px; */
+  }
+
+  #cssmenu li{
+    width: 100%;
+    /* width: 300px; */
+    display: flex;
+    justify-content: center;
+  }
+
+  #cssmenu a{
+    display: flex;
+    justify-content: center;
+  }
+
+  #cssmenu ul li > ul {
+    width: 100%;
+  }
+}

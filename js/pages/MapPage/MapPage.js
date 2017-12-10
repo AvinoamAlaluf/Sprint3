@@ -11,6 +11,7 @@ export default {
         <div class="map">
         
         </div>
+        
         </section>
     `,
     data() {

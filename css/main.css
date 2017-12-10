@@ -15,8 +15,8 @@ body {
     font-family: Lato-bold;
     background: url(../img/background.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
-    min-height: 100%;
+    background-size: cover;
+    background-position: center center;
 }
 
 header{
@@ -35,6 +35,7 @@ header{
 
 .mainNav nav{
     width: 70%;
+    /* min-width: 270px; */
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -42,6 +43,7 @@ header{
 
 nav ul{
     width: 60%;
+    min-width: 200px;
     display: flex;
     justify-content: space-between;
     padding: 0;
@@ -80,7 +82,21 @@ nav li:hover{
 }
 
 @media (max-width:700px){
-    body{
-        /* background-repeat: repeat;         */
+
+    
+    nav ul{
+        font-size: 1.4em;
+    }
+
+    .mainNav nav{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;        
+    }
+
+    .logoNav{
+        width: 70px;
+        height: 70px;
     }
 }

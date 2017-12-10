@@ -149,7 +149,7 @@
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
+    /* transition: opacity 500ms; */
     /* visibility: hidden;
     opacity: 1; */
   }
@@ -199,7 +199,7 @@
 
   .content input{
     height: 2em; 
-    width: 41em;   
+    width: 99%;   
     border-radius: 5px;
     border: 1px solid rgb(167, 167, 167);
     font-family: inherit;
@@ -207,7 +207,7 @@
   }
   .content textarea{
     height: 12em;
-    width: 41em;   
+    width: 98%;   
     border-radius: 5px;  
     border: 1px solid rgb(167, 167, 167); 
     resize: none;   
@@ -232,5 +232,62 @@
     }
     .popup{
       width: 70%;
+    }
+
+    .email{
+        flex-direction: column;
+        height: 150px;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 0;
+        border: 1px solid rgba(49, 49, 49, 0.562);        
+    }
+
+    .email li{
+        align-items: center;
+        justify-content: center;
+        /* justify-content: space-between; */
+        padding: 0;
+        width: 80%;
+        flex-direction: column;
+    }
+
+    .emailContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .emailMenu{
+        width: 90%;
+    }
+
+    .menuContainer{
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .menuContainer ul{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .emailToolBar form{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mailSearch{
+        width: 100%;
+        height: 30px;
+        border: 1px solid rgba(49, 49, 49, 0.562);        
+    }
+
+    .emailListHeader{
+        display: none;
+    }
+
+    .removeEmail{
+        color: rgba(255, 255, 255, 0.329);
+        padding: 0;
     }
   }
