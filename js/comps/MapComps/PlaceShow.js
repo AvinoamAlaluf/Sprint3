@@ -11,46 +11,46 @@ export default {
         
         </div>
         
-            <h2>{{placeToShow.name}}</h2>
+            <h2>{{localplaceToShow.name}}</h2>
             <div class="placeImg">
-                <img :src="placeToShow.imgs"/>
+                <img :src="localplaceToShow.imgs"/>
             </div>
             <div class="imgArrows">
                 <a><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></a>
                 <a><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></a>
             </div>
-            <label>{{placeToShow.description}}</label>
-            <label>Tag:# <span> {{placeToShow.tag}} </span></label>
+            <label>{{localplaceToShow.description}}</label>
+            <label>Tag:# <span> {{localplaceToShow.tag}} </span></label>
         </section>
     `,
     data() {
-        return {
-            
+        return{
+            localplaceToShow : {}
         }
+        
     },
     methods: {
-        getPlaceToShow(){
+        getPlaceToShow() {
             let id = this.placeToShow.id;
             MapService.getPlace(id).then(foundPlace => {
-                this.placeToShow = foundPlace;
+                this.localplaceToShow = foundPlace;
                 console.log(foundPlace);
             }).catch(console.log('Service couldnt get required place'))
         },
-        exitPlace(){
-            this.$emit('exitPlace');            
+        exitPlace() {
+            this.$emit('exitPlace');
         },
-        editPlace(){
-            this.$emit('editPlace'); 
+        editPlace() {
+            this.$emit('editPlace');
         }
     },
     mounted() {
 
     },
-     props: {
+    props: {
         placeToShow: Object
-     },
-    created() {  
+    },
+    created() {
         this.getPlaceToShow();
     }
 }
-
