@@ -51,8 +51,8 @@ function emptyPlace() {
 }
 
 function addPlace(placeObj) {
-    return new Promise((resolve, reject) => {
-        places.push(place)
+    return new Promise((resolve, reject) => { 
+        places.push(placeObj)
         console.log('Place pushed to array');
         resolve(console.log('Place Successfully Added!'));
         reject(console.log('service Failed To Add Place!'));
@@ -86,8 +86,6 @@ function deletePlace(id) {
     var placeToDeleteIdx = places.findIndex(place => place.id === id);
     places.splice(placeToDeleteIdx, 1);
 }
-
-
 
 
 function initMap(latUser, lngUser) {
