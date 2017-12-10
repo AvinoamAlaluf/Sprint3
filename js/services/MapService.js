@@ -73,9 +73,13 @@ function getPlace(id) {
 }
 
 function savePlace(newPlaceContent, id) {///FOR SAVING AN EDITTED ITEM USER CHANGED // OR Pushing a new One
-    var placeToChangeIdx = places.findIndex(place => place.id === id);
-    if (placeToChangeIdx === -1) places.push(newPlaceContent);
-    else places.splice(placeToChangeIdx, 1, newPlaceContent);
+    return new Promise((resolve,reject) => {
+        var placeToChangeIdx = places.findIndex(place => place.id === id);
+        if (placeToChangeIdx === -1) places.push(newPlaceContent);
+        else places.splice(placeToChangeIdx, 1, newPlaceContent);
+        resolve('Item Updated Successfully');
+        reject('Item Update Failed');
+    })
 }
 
 function deletePlace(id) {
