@@ -55,7 +55,7 @@ function addPlace(placeObj) {
         places.push(placeObj)
         console.log('Place pushed to array');
         resolve(console.log('Place Successfully Added!'));
-        reject(console.log('service Failed To Add Place!'));
+        reject();
     })
 }
 

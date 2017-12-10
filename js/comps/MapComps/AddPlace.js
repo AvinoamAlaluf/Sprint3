@@ -42,7 +42,7 @@ export default {
                 .then(emptyPlaceObj => {
                     this.placeToAdd = emptyPlaceObj;
                     console.log('EMPTY', this.placeToAdd);
-                    // this.placeToAdd = {};
+                    this.placeToAdd = {};//claering the Obj
                 })
                 .catch(console.log('Service Coulndnt get an empty Template'));
         },
@@ -52,19 +52,10 @@ export default {
         },
         saveNewPlace() {
             MapService.addPlace(this.placeToAdd)
-                .then(console.log('Place Added To Service', this.placeToAdd))
-                .catch(console.log('Place Failed Added To Service'))
+                .then(console.log('Place Added To Service', this.placeToAdd))                
         }
-    },
-    mounted() {
-
     },
     created() {
         this.getEmptyPlace()
-
-    },
-    updated() {
-
-
     }
 }
