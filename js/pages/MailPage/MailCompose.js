@@ -22,7 +22,7 @@ export default {
                 <h1 class="">{{selectedMail.to}}</h1>
                 <h3 class="">{{selectedMail.subject}}</h3>
                 <h3 class="">{{selectedMail.text}}</h3>
-                <h3 class="">{{selectedMail.sentAt}}</h3>
+                <h3 class="">{{selectedMail.dateToShow}}</h3>
             </form>
 
             </div>

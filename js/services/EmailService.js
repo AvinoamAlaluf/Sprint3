@@ -3,10 +3,10 @@ const emails = [{
     subject: 'Sprint',
     text: 'lorem ipsum tahath ass zhoppa tuhes koo',
     to: 'Small',
-    from: 'ofirnoam',
+    from: 'Miri Regev',
     read: false,
     sentAt: 1512575000382,
-    dateToShow: '',
+    dateToShow: moment(1512575000382).format('l'),
     marked: false
 },
 {
@@ -17,7 +17,19 @@ const emails = [{
     from: 'ofirnoam',
     read: false,
     sentAt: 1512575126397,
-    dateToShow: '',
+    dateToShow: moment(1512575126397).format('l'),
+    marked: false
+},
+
+{
+    id: 4,
+    subject: 'PEPE',
+    text: 'lorem ipsum tahath ass zhoppa tuhes koo',
+    to: 'PEPE',
+    from: 'PEPE',
+    read: true,
+    sentAt: 1512910317071,
+    dateToShow: moment(1512910317071).format('l'),
     marked: false
 },
 {
@@ -28,45 +40,68 @@ const emails = [{
     from: 'Avinoam',
     read: true,
     sentAt: 1512575182386,
-    dateToShow: '',
+    dateToShow: moment(1512575182386).format('l'),
     marked: false
 }
 ];
 
 function getEmails() {
-    return new Promise((resolve, reject) => {   
+    return new Promise((resolve, reject) => {
         resolve(emails);
     });
 }
 
-function sortByDate() {//need Checkings
+function sortByDate(emailsToSort = emails) {//need Checkings
     return new Promise((resolve, reject) => {
-        emails.sort((a, b) => {
+        emailsToSort.sort((a, b) => {
             return a.sentAt - b.sentAt;
         })
-        resolve(emails);
+        resolve(emailsToSort);
     });
 }
 
-function sortByLateDate() {//need Checkings
+function sortByLateDate(emailsToSort = emails) {//need Checkings
     return new Promise((resolve, reject) => {
-        emails.sort((a, b) => {
+        emailsToSort.sort((a, b) => {
             return b.sentAt - a.sentAt;
         })
-        resolve(emails);
+        resolve(emailsToSort);
     });
 }
 
-function sortBySender() {//need Checkings!!!!!!!!!
+function sortBySender(emailsToSort = emails) {//need Checkings!!!!!!!!!
     return new Promise((resolve, reject) => {
-        emails.sort((a, b) => {
-            if (a.from < b.from) return -1;
-            if (a.from > b.from) return 1;
+        emailsToSort.sort((a, b) => {
+            if (a.subject < b.subject) return -1;
+            if (a.subject > b.subject) return 1;
             return 0;
         })
-        resolve(emails);
+        resolve(emailsToSort);
     });
 }
+
+function sortBySubject(emailsToSort = emails) {//need Checkings!!!!!!!!!
+    return new Promise((resolve, reject) => {
+        emailsToSort.sort((a, b) => {
+            if (a.subject < b.subject) return -1;
+            if (a.subject > b.subject) return 1;
+            return 0;
+        })
+        resolve(emailsToSort);
+    });
+}
+
+function reverseSortBySubject(emailsToSort = emails) {//need Checkings!!!!!!!!!
+    return new Promise((resolve, reject) => {
+        emailsToSort.sort((a, b) => {
+            if (b.subject < a.subject) return -1;
+            if (b.subject > a.subject) return 1;
+            return 0;
+        })
+        resolve(emailsToSort);
+    });
+}
+
 
 function getUnreadEmails() {//need Checkings
     return new Promise((resolve, reject) => {
@@ -108,7 +143,7 @@ function getMarkedEmails() {//need Checkings
 function getSentEmails() {//need Checkings
     return new Promise((resolve, reject) => {
         let unreadEmails = emails.filter(email => {
-            return email.from === 'ofirnoam'
+            return email.subject === 'ofirnoam'
         })
         resolve(unreadEmails);
     });
@@ -116,11 +151,11 @@ function getSentEmails() {//need Checkings
 
 
 function emptyMail() {
-    return new Promise((resolve,reject) =>{
-        var emptyMail = { id: _getNextId(), subject: '', text: '', to: '', from: 'ofirnoam', read: false, marked: false };
+    return new Promise((resolve, reject) => {
+        var emptyMail = { id: _getNextId(), subject: '', text: '', to: '', from: 'ofirnoam', read: false, marked: false, sentAt: Date.now(), dateToShow: moment(Date.now()).format('l') };
         // console.log(emptyMail);
-       resolve(emptyMail);
-    //    reject('service Failed To provide empty mail Obj');
+        resolve(emptyMail);
+        //    reject('service Failed To provide empty mail Obj');
     })
 }
 
@@ -168,21 +203,21 @@ function search(searchedValue) {
     debugger;
     var refiendEmails = [];
     var wordToSearch = searchedValue.toLowerCase();
-    return new Promise((resolve,reject) =>{
+    return new Promise((resolve, reject) => {
         refiendEmails = emails.filter(email => {
             debugger;
-            return email.from.toLowerCase().includes(wordToSearch) ||
+            return email.subject.toLowerCase().includes(wordToSearch) ||
                 email.to.toLowerCase().includes(wordToSearch) ||
                 email.subject.toLowerCase().includes(wordToSearch) ||
                 email.text.toLowerCase().includes(wordToSearch)
         });
         resolve(refiendEmails);
-        reject('Service Failed To Filter Emails');    
+        reject('Service Failed To Filter Emails');
     });
 }
 
 function addMail(mailContent) {
-    return new Promise((resolve,reject) =>{
+    return new Promise((resolve, reject) => {
         emails.push(mailContent)
         console.log('sended');
         resolve(console.log('Email Added!'));
@@ -190,7 +225,7 @@ function addMail(mailContent) {
     })
 }
 
-function changeMarked(id){
+function changeMarked(id) {
     var mailTochangeIdx = emails.findIndex(mail => mail.id === id);
     emails[mailTochangeIdx].marked = !emails[mailTochangeIdx].marked;
 }
@@ -212,4 +247,6 @@ export default {
     addMail,
     changeMarked,
     getMarkedEmails,
+    sortBySubject,
+    reverseSortBySubject   
 }

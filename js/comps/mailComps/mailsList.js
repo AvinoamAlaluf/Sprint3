@@ -1,4 +1,5 @@
-import EmailService from '../../services/EmailService.js'
+import EmailService from '../../services/EmailService.js';
+// import Moment from '../../../node_modules/moment/moment.js';
 
 export default {
     template: `
@@ -7,7 +8,7 @@ export default {
             <ul class="email emailListHeader">
                 <li class="favorite"></li>
                 <li @click="fromClicked">From</li>
-                <li>Subject</li>
+                <li @click="subjectClicked">Subject</li>
                 <li @click="dateClicked">Date</li>
             </ul>
             <ul @click="mailClicked(email.id)" class="email" :class="{'readed' : email.read}" v-for="(email, idx) in emails">
@@ -15,7 +16,7 @@ export default {
                 <li>{{email.from}}</li>
                 <li>{{email.subject}}</li>
                 <li>
-                {{email.sentAt}} 
+                {{email.dateToShow}} 
                 <div class="removeEmail" @click.stop="removeEmail(email.id)"><i class="fa fa-times" aria-hidden="true"></i></div>
                 </li>
             </ul>
@@ -26,15 +27,17 @@ export default {
     data() {
         return {
 
-        }
+        }   
     },
     methods: {
         dateClicked() {
             this.$emit('dateClicked');
         },
-
         fromClicked() {
-            this.$emit('fromClicked');
+            this.$emit('fromClicked');            
+        },
+        subjectClicked(){
+            this.$emit('subjectClicked');
         },
         mailClicked(id){
             this.$emit('mailClicked',id);
@@ -45,17 +48,12 @@ export default {
         removeEmail(id){
             EmailService.deleteMail(id);
         },
-        renderDate(date){
-            EmailService.getRenderDate(date)
-        }
     },
     created() {
         // this.sortByDate()
     },
     computed :{
-        renderDate(date){
-            return EmailService.getRenderDate(date)
-        }
+        
     },
     props: {
         emails: Array,

@@ -23,6 +23,7 @@ export default {
                 @dateClicked="sortByDateEndRevrse" 
                 @mailClicked="readMail" 
                 @fromClicked="sortBySender" 
+                @subjectClicked="SortBySubject"
                 :emails="emails" >
                 </mails-list>
             </div>
@@ -33,15 +34,17 @@ export default {
     `,
     data() {
         return {
-            emails: null,
+            emails: [],
             sortedBySender: false,
             sortedByDate: true,
+            sortedBySubject: false,
             showMailCompose: false,
             selectedMail: null
         }
     },
     methods: {
         sortByDate() {
+            debugger;
             console.log('DONE')
             EmailService.sortByDate()
                 .then(emails => {
@@ -51,12 +54,12 @@ export default {
         sortByDateEndRevrse() {
             this.sortedByDate = !this.sortedByDate
             if (this.sortedByDate) {
-                EmailService.sortByDate()
+                EmailService.sortByDate(this.emails)
                     .then(emails => {
                         this.emails = emails;
                     })
             } else {
-                EmailService.sortByLateDate()
+                EmailService.sortByLateDate(this.emails)
                     .then(emails => {
                         this.emails = emails;
                     })
@@ -65,12 +68,23 @@ export default {
         sortBySender() {
             this.sortedBySender = !this.sortedBySender
             if (this.sortedBySender) {
-                EmailService.sortBySender()
+                EmailService.sortBySender(this.emails)
                     .then(emails => {
                         this.emails = emails;
                     })
             } else {
-                this.sortByDate()
+                this.sortByDateEndRevrse(this.emails)
+            }
+        },
+
+        SortBySubject() {
+            this.sortedBySubject = !this.sortedBySubject;
+            if (this.sortedBySubject) {
+                EmailService.sortBySubject(this.emails)
+                .then(emails => this.emails = emails)
+            }else{
+                EmailService.reverseSortBySubject(this.emails)
+                .then(emails => this.emails = emails)
             }
         },
         readMail(id) {
@@ -98,16 +112,16 @@ export default {
         },
         filterUnread() {
             EmailService.getUnreadEmails()
-            .then(emails => {
-                this.emails = emails;
-            })
-        }, 
-        filterMarked(){
+                .then(emails => {
+                    this.emails = emails;
+                })
+        },
+        filterMarked() {
             EmailService.getMarkedEmails()
-            .then(emails => {
-                this.emails = emails;
-            })
-        }, 
+                .then(emails => {
+                    this.emails = emails;
+                })
+        },
         sendEmail(newMail) {
             EmailService.emptyMail()
                 .then(emptyMailObj => {
@@ -119,6 +133,9 @@ export default {
                         .catch(console.log('What a Failure'))
                 }).catch(() => console.log('Service failed to Get New Mail Obj'))
         },
+        getEmailsFromService() {
+            EmailService.getEmails().then(serviceEmails => this.emails = serviceEmails)
+        }
     },
     watch: {
         '$route'(to, from) {
@@ -133,7 +150,7 @@ export default {
     },
 
     created() {
-        this.sortByDate()
+        this.getEmailsFromService()
     },
     components: {
         MailsList,
