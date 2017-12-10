@@ -13,8 +13,8 @@ export default {
             
             <place-show @editPlace="editPlace" @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="false"></place-show>
             <place-edit @exitEdit="exitEdit" v-if="false"></place-edit>
-            <add-place v-if="showEdit"></add-place>
-            <place-list @placeClicked="showPlace" v-if="showList"></place-list>
+            <add-place v-if="true"></add-place>
+            <place-list @placeClicked="showPlace" v-if="false"></place-list>
             
 
         </div>
