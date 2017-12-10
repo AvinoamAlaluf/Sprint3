@@ -11,10 +11,10 @@ export default {
             </div>
             
            <div class="radioSearch">
-                <input  checked v:model="radioSearch" class="radio" type="radio" id="f-option" name="selector" value="list" @click="changeSearchInput('list')">
-                <label for="f-option">search in my places</label>
+                <input   v:model="radioSearch" class="radio" type="radio" id="f-option" name="selector" value="list" @click="changeSearchInput('list')">
+                <label  for="f-option">search in my places</label>
                 
-                <input v:model="radioSearch" class="radio" id="s-option" type="radio" name="selector" value="map" @click="changeSearchInput('map')">
+                <input checked v:model="radioSearch" class="radio" id="s-option" type="radio" name="selector" value="map" @click="changeSearchInput('map')">
                 <label for="s-option">search for new place</label>
    
            </div>
