@@ -16,7 +16,7 @@ body {
     background: url(../img/background.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
-    /* min-height: 100%; */
+    min-height: 100%;
 }
 
 header{
@@ -79,3 +79,8 @@ nav li:hover{
     box-shadow: 0 3px 0 white;
 }
 
+@media (max-width:700px){
+    body{
+        /* background-repeat: repeat;         */
+    }
+}

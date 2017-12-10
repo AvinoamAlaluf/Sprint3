@@ -44,10 +44,18 @@ export default {
         },
         removeEmail(id){
             EmailService.deleteMail(id);
+        },
+        renderDate(date){
+            EmailService.getRenderDate(date)
         }
     },
     created() {
         // this.sortByDate()
+    },
+    computed :{
+        renderDate(date){
+            return EmailService.getRenderDate(date)
+        }
     },
     props: {
         emails: Array,

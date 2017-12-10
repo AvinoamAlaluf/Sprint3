@@ -11,9 +11,9 @@ export default {
         
         <div class="placesDiv"  >
             
-            <place-show @editPlace="editPlace" @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="false"></place-show>
-            <place-edit @exitEdit="exitEdit" v-if="false"></place-edit>
-            <add-place v-if="showEdit"></add-place>
+            <place-show @editPlace="editPlace" @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="showDetails"></place-show>
+            <place-edit @exitEdit="exitEdit" v-if="showEdit"></place-edit>
+            <add-place v-if="false"></add-place>
             <place-list @placeClicked="showPlace" v-if="showList"></place-list>
             
 

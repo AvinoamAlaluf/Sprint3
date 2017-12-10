@@ -6,6 +6,7 @@ const emails = [{
     from: 'ofirnoam',
     read: false,
     sentAt: 1512575000382,
+    dateToShow: '',
     marked: false
 },
 {
@@ -16,6 +17,7 @@ const emails = [{
     from: 'ofirnoam',
     read: false,
     sentAt: 1512575126397,
+    dateToShow: '',
     marked: false
 },
 {
@@ -26,12 +28,13 @@ const emails = [{
     from: 'Avinoam',
     read: true,
     sentAt: 1512575182386,
+    dateToShow: '',
     marked: false
 }
 ];
 
 function getEmails() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {   
         resolve(emails);
     });
 }
@@ -114,7 +117,7 @@ function getSentEmails() {//need Checkings
 
 function emptyMail() {
     return new Promise((resolve,reject) =>{
-        var emptyMail = { id: _getNextId(), subject: '', text: '', to: '', from: 'ofirnoam', read: false, sentAt: Date.now(), marked: false };
+        var emptyMail = { id: _getNextId(), subject: '', text: '', to: '', from: 'ofirnoam', read: false, marked: false };
         // console.log(emptyMail);
        resolve(emptyMail);
     //    reject('service Failed To provide empty mail Obj');
@@ -128,10 +131,10 @@ function _getNextId() {
     return maxId + 1;
 }
 
-function _getDate() {
+function _getRenderDate(date) {
     var result = '';
-    var d = new Date();
-    result += d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear()
+    // var d = new Date();
+    result += date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
     return result;
 }
 
@@ -208,5 +211,5 @@ export default {
     getUnreadEmails,
     addMail,
     changeMarked,
-    getMarkedEmails
+    getMarkedEmails,
 }
