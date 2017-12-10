@@ -3,16 +3,15 @@ import MapService from '../../services/MapService.js';
 export default {
     template: `
         <section class="placesList" v-if="showList"> 
-                
+            
+            <div>
             <input placeholder="🔎 search" class="searchInput" @keydown="searchPlace" type="text">
+            <i v-if="showAddPlace" class="fa fa-plus" aria-hidden="true"></i>            
+            </div>
             
             <div class="place" @mouseover="placeHoverd" @click="placeClicked(place)" v-for="(place,idx) in places">
             <h3>{{place.name}}</h3>
             <h3 class="removePlace" @click.stop="removePlace(place.id)"><i class="fa fa-times" aria-hidden="true"></i></h3>
-            </div>
-
-            <div class="place" v-if="showAddPlace">
-            <h3></h3>
             </div>
             
         </section>

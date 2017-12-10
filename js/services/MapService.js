@@ -9,8 +9,8 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         imgs: ['../../img/placesImgs/1.jpg'],
         lat: 32.0447931,
         lang: 34.7727874,
-        tag: 'Cemetery',
-        marker: 'red'  
+        tag: 'Gas station',
+        marker: _getColorByTag('Gas station')  
     },
     {
         id: 2,
@@ -19,8 +19,8 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         imgs: ['urlpath.jpg'],
         lat: 32.197494,
         lang: 34.9017573,
-        tag: 'pleasure',
-        marker: 'green'  
+        tag: 'Hotel',
+        marker: _getColorByTag('Hotel')   
     },
     {
         id: 3, ///this one is for Shahar
@@ -29,8 +29,8 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         imgs: ['../../img/placesImgs/1.jpg'],
         lat: 32.04671,
         lang: 34.7670063,
-        tag: 'death',
-        marker: 'blue'  
+        tag: 'Cemetery',
+        marker: _getColorByTag('Cemetery')   
     },
 
 ];
@@ -166,6 +166,26 @@ function search() {
                 var lngUser = res.data.results[0].geometry.location.lng;
                 initMap(latUser, lngUser);
             });
+    }
+}
+
+function _getColorByTag(tag){
+    switch (tag) {
+        case 'Restuarant':
+                return 'orange';
+            break;
+        case 'Hotel':
+                return 'green';
+            break;
+        case 'Gas station':
+                return 'blue';
+            break;
+        case 'Parking Lot':
+                return 'purple';
+            break;
+        case 'Cemetery':
+                return 'red';        
+            break;
     }
 }
 

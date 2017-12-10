@@ -50,8 +50,6 @@
         outline: 0;
         border: 0px solid #000000;
         border-radius: 0px;
-        background: #E6E6E6;
-        color: #7B7B7B;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -59,11 +57,11 @@
         .select select::-ms-expand {
             display: none;
         }
-        .select select:hover,
+        /* .select select:hover,
         .select select:focus {
             color: #000000;
             background: #CCCCCC;
-        }
+        } */
         .select select:disabled {
             opacity: 0.5;
             pointer-events: none;
@@ -87,4 +85,51 @@
 }
 .select select:disabled ~ .select_arrow {
     border-top-color: #CCCCCC;
+}
+
+
+
+.orange{
+    background: orange; 
+    color: white;
+}
+
+.orange:hover{
+    background: rgb(230, 147, 4); 
+}
+
+.green{
+    background: green; 
+    color: white;    
+}
+
+.green:hover{
+    background: rgb(1, 112, 1); 
+}
+
+.red{
+    background: red; 
+    color: white;
+}
+
+.red:hover{
+    background: rgb(207, 3, 3); 
+}
+
+.purple{
+    background: purple; 
+    color: white;
+}
+
+.purple:hover{
+    background: rgb(112, 2, 112); 
+}
+
+.blue{
+    background: blue; 
+    color: white;
+}
+
+.blue:hover{
+    background: rgb(1, 1, 192); 
 }

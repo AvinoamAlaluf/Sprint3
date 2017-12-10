@@ -18,13 +18,13 @@ export default {
             
             Tag: 
             <div class="select">
-                <select v-model="placeToEdit.tag">
+                <select :class="placeToEdit.marker" v-model="placeToEdit.tag">
                     <option selected disabled hidden>{{placeToEdit.tag}}</option>
-                    <option>Restuarant</option>
-                    <option>Hotel</option>
-                    <option>Gas Station</option>
-                    <option>Parking Lot</option>
-                    <option>Cemetery</option>
+                    <option class="orange">Restuarant</option>
+                    <option class="green">Hotel</option>
+                    <option class="blue">Gas Station</option>
+                    <option class="purple">Parking Lot</option>
+                    <option class="red">Cemetery</option>
                 </select>
                 <div class="select_arrow"></div>
             </div>
