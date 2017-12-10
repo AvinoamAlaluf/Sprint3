@@ -24,6 +24,7 @@ export default {
             if (evt.keyCode === 13) MapService.search();
         },
         placeClicked(place) {
+            // console.log(place);
             MapService.initMap(place.lat, place.lang);
             this.showList = false;
             this.$emit('placeClicked',place);

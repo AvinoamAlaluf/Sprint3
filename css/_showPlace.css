@@ -16,6 +16,10 @@
     width: -webkit-fill-available;
 } 
 
+.placeToShow > h2{
+    margin: 0;
+}
+
 .imgArrows{
     width: 100%;
     display: flex;

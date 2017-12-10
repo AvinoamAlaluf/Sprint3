@@ -3,32 +3,37 @@ import MapService from '../../services/MapService.js';
 export default {
     template: `
         <section class="placeToShow">        
-            
-            <h2>{{localPlaceToShow.name}}</h2>
+        
+        <div class="exitPlace" @click.stop="exitPlace"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </div>
+        
+            <h2>{{placeToShow.name}}</h2>
             <div>
-                <img :src="localPlaceToShow.imgs"/>
+                <img :src="placeToShow.imgs"/>
             </div>
             <div class="imgArrows">
                 <a><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></a>
                 <a><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></a>
             </div>
-            <label>{{localPlaceToShow.description}}</label>
-            <label>Tag:# <span> {{localPlaceToShow.tag}} </span></label>
+            <label>{{placeToShow.description}}</label>
+            <label>Tag:# <span> {{placeToShow.tag}} </span></label>
         </section>
     `,
     data() {
         return {
-            localPlaceToShow : {}
+            
         }
     },
     methods: {
         getPlaceToShow(){
-            let id = placeToShow.id;
-            console.log(id);
+            let id = this.placeToShow.id;
             MapService.getPlace(id).then(foundPlace => {
-                this.localPlaceToShow = foundPlace;
+                this.placeToShow = foundPlace;
                 console.log(foundPlace);
             }).catch(console.log('Service couldnt get required place'))
+        },
+        exitPlace(){
+            this.$emit('exitPlace');            
         }
     },
     mounted() {
@@ -37,9 +42,8 @@ export default {
      props: {
         placeToShow: Object
      },
-    created() {
-        this.getPlaceToShow()
-        console.log('JSDFJSDFJSDFJSDFJJSDFJJSDFJJSDFJJ');   
+    created() {  
+        this.getPlaceToShow();
     }
 }
 
