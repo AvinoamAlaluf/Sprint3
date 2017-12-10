@@ -10,9 +10,9 @@ export default {
         
         <div class="placesDiv"  >
             
-            <place-show @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="showDetails"></place-show>
-            <place-edit v-if=false></place-edit>
-            <place-list @placeClicked="showPlace" v-if="!showDetails"></place-list>
+            <place-show @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="false"></place-show>
+            <place-edit v-if="true"></place-edit>
+            <place-list @placeClicked="showPlace" v-if="false"></place-list>
 
         </div>
         
