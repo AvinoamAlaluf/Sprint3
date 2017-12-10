@@ -6,7 +6,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         id: 1,
         name: 'Home',
         description: 'Where You Live,Dummie',
-        imgs: ['./../img/placesImgs/1.jpg'],
+        imgs: ['./img/placesImgs/1.jpg'],
         lat: 32.0447931,
         lang: 34.7727874,
         tag: 'Gas station',
@@ -26,7 +26,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         id: 3, ///this one is for Shahar
         name: 'Society for Prevention of Cruelty to Animals in Israel',
         description: 'Where Animals Start And End',
-        imgs: ['./../img/placesImgs/1.jpg'],
+        imgs: ['./img/placesImgs/1.jpg'],
         lat: 32.04671,
         lang: 34.7670063,
         tag: 'Cemetery',
