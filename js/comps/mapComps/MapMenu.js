@@ -2,6 +2,7 @@ import MapService from '../../services/MapService.js';
 import PlaceShow from './PlaceShow.js'
 import PlaceList from './PlaceList.js'
 import PlaceEdit from './PlaceEdit.js'
+import AddPlace from './AddPlace.js'
 
 export default {
     template: `
@@ -10,9 +11,11 @@ export default {
         
         <div class="placesDiv"  >
             
-            <place-show @editPlace="editPlace" @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="showDetails"></place-show>
-            <place-edit @exitEdit="exitEdit" v-if="showEdit"></place-edit>
-            <place-list @placeClicked="showPlace" v-if="showList"></place-list>
+            <place-show @editPlace="editPlace" @exitPlace="exitPlace" :placeToShow="placeToShow" v-if="false"></place-show>
+            <place-edit @exitEdit="exitEdit" v-if="false"></place-edit>
+            <add-place v-if="true"></add-place>
+            <place-list @placeClicked="showPlace" v-if="false"></place-list>
+            
 
         </div>
         
@@ -50,7 +53,8 @@ export default {
     components: {
         PlaceShow,
         PlaceList,
-        PlaceEdit
+        PlaceEdit,
+        AddPlace
     },
     mounted() {
 
