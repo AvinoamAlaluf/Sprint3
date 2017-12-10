@@ -3,7 +3,7 @@ const emails = [{
     subject: 'Sprint',
     text: 'lorem ipsum tahath ass zhoppa tuhes koo',
     to: 'Small',
-    subject: 'ofirnoam',
+    from: 'Miri Regev',
     read: false,
     sentAt: 1512575000382,
     dateToShow: moment(1512575000382).format('l'),
