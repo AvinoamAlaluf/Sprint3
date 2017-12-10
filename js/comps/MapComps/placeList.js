@@ -9,6 +9,16 @@ export default {
             <i v-if="showAddPlace" class="fa fa-plus" aria-hidden="true"></i>            
             </div>
             
+           <div class="radioSearch">
+                <input v:model="radioSearch" class="radio" type="radio" id="f-option" name="selector">
+                <label for="f-option">my places</label>
+                
+                <input v:model="radioSearch" class="radio" id="s-option" type="radio" name="selector">
+                <label for="s-option">search place</label>
+   
+           </div>
+          
+            
             <div class="place" @mouseover="placeHoverd" @click="placeClicked(place)" v-for="(place,idx) in places">
             <h3>{{place.name}}</h3>
             <h3 class="removePlace" @click.stop="removePlace(place.id)"><i class="fa fa-times" aria-hidden="true"></i></h3>
@@ -20,7 +30,8 @@ export default {
         return {
             places: [],
             showList: true,
-            showAddPlace: false
+            showAddPlace: false,
+            radioSearch: ''
         }
     },
     methods: {

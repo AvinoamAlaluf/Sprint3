@@ -89,3 +89,16 @@
     color: rgba(255, 251, 251, 0.9);
 }
 
+
+/* *****************radio buttons********************* */
+.radioSearch{
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    justify-content: space-between;
+    width: 65%;
+}
+
+.radio{
+    margin: 0;
+}
