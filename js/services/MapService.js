@@ -9,7 +9,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         description: 'Where You Live,Dummie',
         imgs: ['./img/placesImgs/1.jpg'],
         lat: 32.0447931,
-        lang: 34.7727874,
+        lng: 34.7727874,
         tag: 'Gas station',
         marker: _getColorByTag('Gas station')
     },
@@ -17,9 +17,9 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         id: 2,
         name: 'Ofirs Home',
         description: 'Where Ofir Live,Dummie',
-        imgs: ['urlpath.jpg'],
+        imgs: ['https://image.flaticon.com/icons/svg/23/23665.svg'],
         lat: 32.197494,
-        lang: 34.9017573,
+        lng: 34.9017573,
         tag: 'Hotel',
         marker: _getColorByTag('Hotel')
     },
@@ -29,7 +29,7 @@ var places = [//Hey Man, You can add fields to theses Objects if you need
         description: 'Where Animals Start And End',
         imgs: ['./img/placesImgs/1.jpg'],
         lat: 32.04671,
-        lang: 34.7670063,
+        lng: 34.7670063,
         tag: 'Cemetery',
         marker: _getColorByTag('Cemetery')
     },
@@ -45,20 +45,23 @@ function _getNextId() {
 
 function emptyPlace() {
     return new Promise((resolve, reject) => {
-        let newEmptyPlace = { id: _getNextId(), name: '', description: '', imgs: [], lat: 0, lang: 0, tag: '', marker: '' };
+        let newEmptyPlace = { id: _getNextId(), name: '', description: '', imgs: ['https://image.flaticon.com/icons/svg/23/23665.svg'], lat: 0, lng: 0, tag: '', marker: '' };
         resolve(newEmptyPlace);
         reject('service Failed To provide empty placeObj');
     })
 }
 
 function addPlace(placeObj) {
+
     placeObj.lng = gCurrSearchLocation.lng;
     placeObj.lat = gCurrSearchLocation.lat;
+    console.log('gCurrSearchLocation', gCurrSearchLocation);
     placeObj.marker = _getColorByTag(placeObj.tag)
     console.log('marker',placeObj);
     return new Promise((resolve, reject) => {
         places.push(placeObj)
         console.log('Place pushed to array');
+        initMap(placeObj.lat, placeObj.lng);
         resolve(console.log('Place Successfully Added!'));
         reject();
     })
@@ -93,6 +96,7 @@ function deletePlace(id) {
 
 
 function initMap(latUser, lngUser) {
+    // console.log('lat', latUser, 'lng', lngUser)
     var location = {
         lat: latUser,
         lng: lngUser
@@ -106,7 +110,7 @@ function initMap(latUser, lngUser) {
         var marker = new google.maps.Marker({
             position: {
                 lat: place.lat,
-                lng: place.lang
+                lng: place.lng
             },
             animation: google.maps.Animation.DROP,
             // label: place.name[0],

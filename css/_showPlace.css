@@ -8,11 +8,13 @@
 
 .placeToShow img{
     border-radius: inherit;
+    max-height:100px; 
     width: -webkit-fill-available;
 }
 
 .placeImg{
     display: flex;
+    max-height:100px; 
     width: -webkit-fill-available;
 } 
 

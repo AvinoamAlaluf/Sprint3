@@ -44,8 +44,9 @@ export default {
             } 
         },
         placeClicked(place) {
-            // console.log(place);
-            MapService.initMap(place.lat, place.lang);
+            // console.log('place', place);
+            
+            MapService.initMap(place.lat, place.lng);
             this.showList = false;
             this.$emit('placeClicked',place);
         },

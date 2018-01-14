@@ -8,6 +8,7 @@
 
 .placeToEdit img{
     border-radius: inherit;
+    max-height:100px; 
     width: -webkit-fill-available;
 }
 
