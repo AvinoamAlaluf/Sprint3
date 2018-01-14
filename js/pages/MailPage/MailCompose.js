@@ -52,7 +52,7 @@ export default {
             this.$router.push('/mail')
         },
         submitClicked() {
-            if (!this.newMail.composeTo && !this.newMail.composeSubject && !this.newMail.composeText) {
+            if (!this.newMail.composeTo ||!this.newMail.composeSubject || !this.newMail.composeText) {
                 return;
             }
             event.preventDefault()
