@@ -54,7 +54,6 @@ export default {
             this.$emit('exitEdit');//need to add the bind when calling PLACEADD comp
         },
         saveNewPlace() {
-            this.placeToAdd.imgs = this.imgsToAdd;
 
             MapService.addPlace(this.placeToAdd)
                 .then(()=>{
