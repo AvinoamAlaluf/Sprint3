@@ -6,13 +6,10 @@ export default {
             <label>Title:</label>
             <input  v-model="placeToEdit.name"></input>
             <label>Edit Images:</label>
-            <div>
+            <div v-if="false">
                 <input> :src="placeToEdit.imgs"</>
             </div>
-            <div class="imgArrows">
-                <a><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></a>
-                <a><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></a>
-            </div>
+        
             <label>Edit Description:</label>
             <input v-model="placeToEdit.description"></input>
             

@@ -15,10 +15,7 @@ export default {
             </div>
             <label>Description:</label>
             <input v-model="placeToAdd.description"></input>
-            <label>Images:</label>
-            <div>
-                <input v-model="imgToAdd"></input><a @click="addImgToObjArr"><i class="fa fa-plus" aria-hidden="true"></i></a>
-            </div>
+            
             Tag: 
             <div class="select">
                 <select v-model="placeToAdd.tag">
