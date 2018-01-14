@@ -29,6 +29,10 @@ export default {
             this.$router.push('/notes');
         },
         saveNote() {
+            console.log('this.noteToUpdate', this.noteToUpdate);
+            if (this.noteToUpdate.title==='Enter title' || this.noteToUpdate.text==='Enter text' ) {
+                return;
+            }
             NotesService.saveNote(this.noteToUpdate, this.noteId);
             console.log(this.noteToUpdate);
         }
